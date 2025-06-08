@@ -22,7 +22,7 @@ function SignIn() {
         <div className="flex items-center gap-x-3">
           <h1 className="text-[#828282] text-xl font-medium">Don’t have account?</h1>
 
-          <button className="bg-[#E6335740] py-3 px-7 rounded-2xl shadow cursor-pointer text-white" onClick={() => {
+          <button className="bg-[#E6335740] py-3 px-7 rounded-2xl shadow cursor-pointer text-white hover:bg-[#FF3C61]" onClick={() => {
             navigate("/signup")
           }}>
             Register
