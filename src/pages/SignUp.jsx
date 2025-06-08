@@ -1,3 +1,4 @@
+
 import { Eye, EyeOff } from 'lucide-react';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -66,7 +67,6 @@ function SignUp() {
                 onChange={(e) => setFirstName(e.target.value)}
                 className="w-full px-4 py-3 border border-pink-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 placeholder-pink-300"
               />
-
               <input
                 type="text"
                 placeholder="Last Name"
@@ -92,7 +92,7 @@ function SignUp() {
                   : "bg-[#FF3C61]"
               }`}
               onClick={() => {
-                navigate("/verify-email")
+                navigate("/signup-role")
               }}
             >
               Continue

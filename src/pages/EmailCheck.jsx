@@ -1,6 +1,6 @@
 
 import { ChevronLeft } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function EmailCheck() {
@@ -8,14 +8,6 @@ function EmailCheck() {
   const navigate = useNavigate();
 
 //   const isDisabled = !email;
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/");
-    }, 5000); // 5000 milliseconds = 5 seconds
-
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, [navigate]);
 
   return (
     <div className="bg-white">
