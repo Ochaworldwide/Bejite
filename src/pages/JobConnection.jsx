@@ -1,6 +1,5 @@
 
 
-
 import React, { useState } from "react";
 import usersData from "../data/usersData";
 import UserList from "../components/UserList";
@@ -10,7 +9,7 @@ const JobConnection = () => {
   const [addedUsers, setAddedUsers] = useState([]);
 
   const handleAdd = (id) => {
-    if (!addedUsers.includes(id) && addedUsers.length < 10) {
+    if (!addedUsers.includes(id) ) {
       setAddedUsers([...addedUsers, id]);
     }
   };

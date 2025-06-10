@@ -84,8 +84,8 @@ function SignUp() {
 
             <p className="text-[#FF6F61] text-center text-xl">or signup with</p>
             <div className="flex justify-center gap-6 mt-4">
-              <FaLinkedin className="text-blue-600 text-3xl" /> 
-              <FaGoogle className="text-red-500 text-3xl" />
+              <FaLinkedin className="text-blue-600 text-3xl cursor-pointer" /> 
+              <img src="/assets/images/google.png" alt="google logo" className='w-8 h-8 cursor-pointer' />
               <img src="/assets/images/x.svg" alt="Twitter" className="w-8 h-8 cursor-pointer" />
               
             </div>
