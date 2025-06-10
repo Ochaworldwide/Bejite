@@ -3,17 +3,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function VerifyEmail() {
-  //   const [email, setEmail] = useState("");
+
   const navigate = useNavigate();
 
-  //   const isDisabled = !email;
 
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/confirmpassword");
-    }, 5000); // 5000 milliseconds = 5 seconds
+    }, 5000); 
 
-    return () => clearTimeout(timer); // Cleanup on unmount
+    return () => clearTimeout(timer); 
   }, [navigate]);
 
   return (
@@ -45,21 +44,11 @@ function VerifyEmail() {
               </div>
 
               <button
-                // disabled={isDisabled}
+             
                 className={`w-[70%] py-4 rounded-[20px] text-white  bg-[#FF3C61] font-semibold transition shadow-md cursor-pointer`}
               >
                 Resend Email
               </button>
-
-              {/* <div
-                className="flex cursor-pointer gap-x-2"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                {" "}
-                <ChevronLeft /> <span>Go Back To Login</span>
-              </div> */}
             </div>
           </div>
         </div>
