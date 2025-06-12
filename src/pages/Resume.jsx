@@ -15,7 +15,7 @@ const Resume = () => {
       </div>
 
  
-      <div className="flex flex-col items-center justify-center w-full px-4 max-w-4xl text-center mt-[10%]">
+      <div className="flex flex-col items-center justify-center w-full px-4 max-w-4xl text-center mt-[5%]">
         <div className="w-full max-w-sm sm:max-w-md md:max-w-lg mb-6 mt-auto">
           <img src="/assets/images/Frame.svg" alt="Resume Visual" className="m-auto" />
         </div>
