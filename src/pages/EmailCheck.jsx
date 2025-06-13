@@ -23,7 +23,7 @@ function EmailCheck() {
             className="w-28 sm:w-32 md:w-36"
           />
 
-          <h1 className="text-2xl sm:text-3xl font-bold text-pink-600 text-center">
+          <h1 className="text-2xl sm:text-3xl font-norican font-semibold text-[#E63357] text-center">
             Check Your Email
           </h1>
 

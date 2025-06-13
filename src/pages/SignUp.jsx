@@ -35,6 +35,7 @@ function SignUp() {
       <div className="flex flex-col lg:flex-row flex-1">
         <div className="w-full lg:w-1/2 relative hidden lg:block">
           <img src="/assets/images/auth.svg" alt="Auth" className="w-full h-full object-cover" />
+         
           <img
             src="/assets/images/auth_text.png"
             alt="Text"
@@ -45,7 +46,7 @@ function SignUp() {
         
         <div className="w-full lg:w-1/2 flex items-center justify-center bg-white px-6 py-10">
           <div className="w-full max-w-md space-y-7 mb-[20%]">
-            <h2 className="text-3xl font-bold text-pink-600 text-center">Sign Up</h2>
+            <h2 className="text-3xl font-norican font-semibold text-[#E63357] text-center">Sign Up</h2>
             <p className="text-center text-pink-400 text-md">Create your account in a few steps</p>
 
             <div className="space-y-4">
@@ -93,7 +94,7 @@ function SignUp() {
         </div>
       </div>
     </div>
-  );
+  );  
 }
 
 export default SignUp;

@@ -35,7 +35,7 @@ const JobSeekerOpt = () => {
 
     
       <div className="w-full px-4 sm:max-w-xl text-center mt-[10%]">
-        <p className="text-3xl sm:text-4xl font-bold text-[#FF3C61]">As a Jobseeker</p>
+        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#E63357]">As a Jobseeker</p>
         <p className="text-lg sm:text-xl text-[#FF6F61] mt-2">
           Select one of the listed options below
         </p>

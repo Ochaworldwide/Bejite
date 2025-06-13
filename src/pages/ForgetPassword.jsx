@@ -16,7 +16,7 @@ function ForgetPassword() {
 
       <div className="flex flex-col items-center justify-center w-full px-4 mt-6 sm:mt-16 flex-1">
         <div className="w-full max-w-md space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-bold text-pink-600 text-center">
+          <h2 className="text-2xl sm:text-3xl font-norican font-semibold text-[#E63357] text-center">
             Forgot your password?
           </h2>
           <p className="text-center text-pink-400 text-sm sm:text-base">

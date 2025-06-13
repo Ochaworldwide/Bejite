@@ -21,7 +21,7 @@ const Resume = () => {
         </div>
 
         <div className="w-full max-w-3xl mb-8">
-          <p className="text-2xl sm:text-3xl md:text-5xl font-semibold text-[#FF3C61] mb-4">
+          <p className="text-2xl sm:text-3xl md:text-5xl font-norican font-semibold text-[#E63357]  mb-4">
             Build Your Resume. Get Noticed.
           </p>
           <p className="text-[#FF6F61] text-base sm:text-lg md:text-xl font-normal leading-relaxed">
