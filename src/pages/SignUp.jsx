@@ -46,8 +46,8 @@ function SignUp() {
         
         <div className="w-full lg:w-1/2 flex items-center justify-center bg-white px-6 py-10">
           <div className="w-full max-w-md space-y-7 mb-[20%]">
-            <h2 className="text-3xl font-norican font-semibold text-[#E63357] text-center">Sign Up</h2>
-            <p className="text-center text-pink-400 text-md">Create your account in a few steps</p>
+            <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">Sign Up</h2>
+            <p className="text-center text-[#6B8E23] text-md">Create your account in a few steps</p>
 
             <div className="space-y-4">
               <input
@@ -76,7 +76,7 @@ function SignUp() {
             <button
               disabled={isDisabled}
               className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition mb-6 ${
-                isDisabled ? "bg-[#E6335740] cursor-not-allowed" : "bg-[#FF3C61]"
+                isDisabled ? "bg-[#E6335740] cursor-not-allowed" : "bg-[#16730F]"
               }`}
               onClick={() => navigate("/signup-role")}
             >

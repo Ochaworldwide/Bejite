@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import usersData from "../data/usersData";
 import UserList from "../components/UserList";
