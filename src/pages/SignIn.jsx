@@ -18,9 +18,9 @@ function SignIn() {
       <div className="w-full px-4 py-6 flex justify-between items-center max-w-screen-xl mx-auto">
         <img src="/assets/images/logo.png" alt="Logo" className="h-10" />
         <div className="flex items-center gap-3">
-          <h1 className="text-[#828282] text-base sm:text-xl font-medium">Don’t have an account?</h1>
+          <h1 className="text-[#828282] text-base sm:text-xl font-medium">Don't have an account?</h1>
           <button
-            className="bg-[#E6335740] py-2 px-5 sm:py-3 sm:px-7 rounded-2xl shadow text-white"
+            className="bg-[#FF3C6140] py-2 px-5 sm:py-3 sm:px-7 rounded-2xl shadow text-white"
             onClick={() => navigate('/signup')}
           >
             Register
@@ -28,9 +28,8 @@ function SignIn() {
         </div>
       </div>
 
-      {/* Main Section */}
+      
       <div className="flex flex-col lg:flex-row flex-1">
-        {/* Image Panel */}
         <div className="w-full lg:w-1/2 relative hidden lg:block">
           <img src="/assets/images/auth.svg" alt="Auth" className="w-full h-full object-cover" />
           <img
@@ -41,9 +40,9 @@ function SignIn() {
         </div>
 
         <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-10">
-          <div className="w-full max-w-md space-y-7 mb-[35%]">
-            <h2 className="text-3xl font-bold text-pink-600 text-center">Welcome Back!</h2>
-            <p className="text-center text-pink-400 text-md">Sign in to continue</p>
+          <div className="w-full max-w-md space-y-5 mb-[35%]">
+            <h2 className="text-3xl font-norican font-semibold text-[#E63357] text-center ">Welcome Back!</h2>
+            <p className="text-center text-[#FF6F61] text-md">Sign in to continue</p>
 
             <div className="space-y-4">
               <input
