@@ -29,14 +29,14 @@ const EmployerOpt = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center w-full px-4 py-10 sm:py-20 mt-[5%]">
-        <h1 className="text-5xl text-[#16730F] font-[500] leading-relaxed">
+        <h1 className="lg:text-5xl text-2xl text-[#16730F] font-[500] leading-relaxed">
           As an Employer
         </h1>
-        <p className="text-xl text-[#6B8E23] font-[400] leading-relaxed">
+        <p className="lg:text-xl text-center text-[#6B8E23] font-[400] leading-relaxed">
           Choose the account type that fits your hiring needs
         </p>
 
-        <div className="w-[50%] px-4 mt-12 flex flex-wrap justify-around gap-6 py-10 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
+        <div className="lg:w-[50%] w-full px-4 mt-12 flex flex-wrap justify-around gap-6 py-10 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
           <MemberCard
             label="INDIVIDUAL"
             iconSrc="/assets/images/user.svg"

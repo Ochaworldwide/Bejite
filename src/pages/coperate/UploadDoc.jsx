@@ -72,7 +72,7 @@ const CoperateUploadDoc = () => {
             <div className="mb-3">
               <label
                 htmlFor="file-upload"
-                className="cursor-pointer border border-green-700 rounded-md px-4 py-3 flex items-center justify-center gap-2 text-green-700"
+                className="cursor-pointer border overflow-hidden border-green-700 rounded-md px-4 py-3 flex items-center justify-center gap-2 text-green-700"
               >
                 <Upload className="w-4 h-4" />
                 {fileName || "Choose File"}

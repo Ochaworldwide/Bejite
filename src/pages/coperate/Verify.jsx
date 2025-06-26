@@ -23,13 +23,13 @@ const CoperateVerify = () => {
     <div className="bg-white min-h-screen relative">
       <Header />
 
-      <div className="w-[70%] flex flex-col p-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="lg:w-[70%] w-full flex flex-col p-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         {!showConsent ? (
           // ✅ Initial verification instructions
-          <div className="w-[45%] mx-auto rounded-2xl p-5 flex flex-col gap-y-6 items-center">
+          <div className="lg:w-[45%] w-full mx-auto rounded-2xl p-5 flex flex-col gap-y-6 items-center">
             <h1 className="text-xl font-[500] italic">Almost there</h1>
 
-            <h1 className="text-[#1A3E32] font-[600] text-3xl">
+            <h1 className="text-[#1A3E32] font-[600] text-3xl text-center">
               Confirm Your Legal Role
             </h1>
 
@@ -58,8 +58,8 @@ const CoperateVerify = () => {
           </div>
         ) : (
           // 🔒 Consent screen after clicking Start Verification
-          <div className="w-[90%] mx-auto rounded-2xl p-5 flex flex-col gap-y-6 items-center">
-            <div className="flex items-center">
+          <div className="lg:w-[90%] w-full mx-auto rounded-2xl lg:p-5 flex flex-col gap-y-6 items-center">
+            <div className="flex lg:items-center ">
               <input
                 type="checkbox"
                 id="agree"
@@ -68,7 +68,7 @@ const CoperateVerify = () => {
               />
               <label
                 htmlFor="agree"
-                className="ml-2 text-sm text-center text-green-700"
+                className="ml-5 text-sm lg:text-center text-green-700 "
               >
                 I confirm that I am legally authorized to hire for this company
                 and consent to ID verification.

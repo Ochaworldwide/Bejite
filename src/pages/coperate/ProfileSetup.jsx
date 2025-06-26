@@ -51,7 +51,7 @@ const CoperateProfileSetup = () => {
         Introduce yourself to jobseekers
       </p>
 
-      <div className="max-w-4xl mx-auto mt-6 border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 p-4 items-center">
+      <div className="max-w-4xl mx-auto mt-6 lg:border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 lg:p-4 items-center">
         <ImageUpload
           imagePreview={imagePreview}
           handleImageChange={handleImageChange}
@@ -59,9 +59,9 @@ const CoperateProfileSetup = () => {
           onBioChange={handleChange}
         />
 
-        <div className="bg-[#F5F5F5] w-[90%] mx-auto rounded-2xl p-5">
+        <div className="lg:bg-[#F5F5F5] lg:w-[90%] w-full mx-auto lg:rounded-2xl p-5 ">
           {/* NICK NAME*/}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl mb-4 rounded-md">
             <label className="font-semibold text-[12px] mb-2 block">
               Unique Identifier (required)
             </label>
@@ -76,7 +76,7 @@ const CoperateProfileSetup = () => {
           </div>
 
           {/* SUMMARY */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl mb-4 rounded-md">
             <label className="font-semibold text-[12px] mb-2 block">
               Bio/Summary (Required, 500 chars max)
             </label>

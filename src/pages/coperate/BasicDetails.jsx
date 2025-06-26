@@ -42,10 +42,10 @@ const CoperateBasicDetails = () => {
         Let’s get to know you
       </p>
 
-      <div className="max-w-4xl mx-auto mt-6 border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 p-4">
-        <div className="bg-[#F5F5F5] w-[90%] mx-auto rounded-2xl p-5">
+      <div className="max-w-4xl mx-auto mt-6 border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 lg:p-4">
+        <div className="lg:w-[90%] w-full mx-auto lg:rounded-2xl p-5 ">
           {/* FULL NAME */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl  mb-4 rounded-md">
             <label className="font-semibold text-[12px] mb-2 block">
               FULL NAME
             </label>
@@ -60,7 +60,7 @@ const CoperateBasicDetails = () => {
           </div>
 
           {/* EMAIL */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl mb-4 rounded-md">
             <label className="font-semibold text-[12px] mb-2 block">
               OFFICIAL EMAIL
             </label>
@@ -75,7 +75,7 @@ const CoperateBasicDetails = () => {
           </div>
 
           {/* PHONE NUMBER */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-2">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl mb-2 rounded-md">
             <label className="font-semibold text-[12px] mb-2 block">
               PHONE NUMBER
             </label>

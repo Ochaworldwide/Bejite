@@ -93,10 +93,10 @@ const CoperateLocation = () => {
         Where do you need help?
       </p>
 
-      <div className="max-w-4xl mx-auto mt-6 border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 p-4">
-        <div className="bg-[#F5F5F5] w-[90%] mx-auto rounded-2xl p-5">
+      <div className="max-w-4xl mx-auto mt-6 lg:border-2 border-[#E0E0E0] flex flex-col lg:flex-row gap-8 lg:p-4">
+        <div className="lg:bg-[#F5F5F5] lg:w-[90%] w-full mx-auto rounded-2xl p-5 ">
           {/* ADDRESS */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl rounded-md  mb-4">
             <label className="font-semibold text-[12px] mb-2 block">
               Company HQ Address (Required) (Jobseekers see only city/region)
             </label>
@@ -111,7 +111,7 @@ const CoperateLocation = () => {
           </div>
 
           {/* CITY */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4 flex flex-col gap-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl rounded-md  mb-4 flex flex-col gap-4">
             <div className="w-full">
               <label className="font-semibold text-[12px] mb-2 block">
                 City/State (Required)
@@ -128,7 +128,7 @@ const CoperateLocation = () => {
           </div>
 
           {/* COUNTRY */}
-          <div className="p-5 bg-[#82828280] rounded-3xl mb-4 flex flex-col gap-4">
+          <div className="p-5 bg-[#82828280] lg:rounded-3xl rounded-md  mb-4 flex flex-col gap-4">
             <div className="w-full">
               <label className="font-semibold text-[12px] mb-2 block">
                 COUNTRY (required)
