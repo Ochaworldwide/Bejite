@@ -41,12 +41,12 @@ const countries = [
 
   return (
     <div className="bg-white">
-     <Header/>
+      <Header />
 
       <StepTabs steps={steps} currentStep={currentStep} />
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
 
-      <section className="max-w-3xl mx-auto px-4 mt-4 text-[#E63357] text-2xl font-semibold">
+      <section className="max-w-3xl mx-auto px-4 mt-4 text-[#1A3E32] text-2xl font-semibold">
         Bio/Personal Information
       </section>
       <p className="max-w-3xl mx-auto px-4 text-[#333] text-[15px]">

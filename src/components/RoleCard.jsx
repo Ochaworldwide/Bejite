@@ -15,7 +15,7 @@ const RoleCard = ({ imageSrc, title, description, buttonText, onClick }) => (
 
       <button
         onClick={onClick}
-        className="bg-[#FF3C61] hover:bg-[#e53355] text-white w-full max-w-[320px] h-[48px] sm:h-[53px] rounded-3xl mt-6 text-sm sm:text-base shadow"
+        className="bg-[#FF3C61] hover:bg-[#e53355] text-white w-full max-w-[320px] h-[48px] sm:h-[53px] rounded-3xl mt-6 text-sm sm:text-base shadow cursor-pointer"
       >
         {buttonText}
       </button>

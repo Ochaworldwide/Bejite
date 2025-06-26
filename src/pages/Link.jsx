@@ -27,19 +27,22 @@ function Link() {
       <StepTabs steps={steps} currentStep={currentStep} />
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
 
-      <div className="max-w-3xl mx-auto mt-6 text-[#E63357] text-2xl font-semibold">
+      <div className="max-w-3xl mx-auto mt-6 text-[#1A3E32] text-2xl font-semibold">
         Links
       </div>
       <p className="max-w-3xl mx-auto text-[#333] text-sm mb-6">
-        Add at least one link to your online presence. Employers love to see your work, projects, or portfolio.
+        Add at least one link to your online presence. Employers love to see
+        your work, projects, or portfolio.
       </p>
 
       <div className="max-w-full md:max-w-4xl mx-auto border-2 border-[#E0E0E0] p-4">
         <div className="bg-[#E0E0E0] w-full max-w-2xl mx-auto p-8 rounded-2xl">
-          <div className="bg-[#E63357] p-4 rounded-2xl">
+          <div className="bg-[#1A3E32] p-4 rounded-2xl">
             <div className="space-y-6">
               <div className="w-full">
-                <p className="text-[#D9D9D9] text-[15px] font-semibold mb-1">LinkedIn</p>
+                <p className="text-[#D9D9D9] text-[15px] font-semibold mb-1">
+                  LinkedIn
+                </p>
                 <input
                   type="text"
                   value={linkedin}
@@ -61,7 +64,9 @@ function Link() {
               </div>
 
               <div className="w-full">
-                <p className="text-[#D9D9D9] text-[15px] font-bold mb-1">Instagram</p>
+                <p className="text-[#D9D9D9] text-[15px] font-bold mb-1">
+                  Instagram
+                </p>
                 <input
                   type="text"
                   value={instagram}
@@ -72,7 +77,9 @@ function Link() {
               </div>
 
               <div className="w-full">
-                <p className="text-[#D9D9D9] text-[15px] font-bold mb-1">Portfolio website</p>
+                <p className="text-[#D9D9D9] text-[15px] font-bold mb-1">
+                  Portfolio website
+                </p>
                 <input
                   type="text"
                   value={portfolio}

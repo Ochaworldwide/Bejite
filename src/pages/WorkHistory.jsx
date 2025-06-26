@@ -95,8 +95,12 @@ function WorkHistory() {
       <StepTabs steps={steps} currentStep={currentStep} />
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
 
-      <div className="max-w-3xl mx-auto mt-6 text-[#E63357] text-2xl font-semibold">Work history</div>
-      <p className="max-w-3xl mx-auto text-[#333] text-sm mb-6">Your professional experience shows your expertise.</p>
+      <div className="max-w-3xl mx-auto mt-6 text-[#1A3E32] text-2xl font-semibold">
+        Work history
+      </div>
+      <p className="max-w-3xl mx-auto text-[#333] text-sm mb-6">
+        Your professional experience shows your expertise.
+      </p>
 
       <div className="max-w-full md:max-w-4xl mx-auto border-2 border-[#E0E0E0] p-4 rounded-lg">
         <div className="bg-[#F5F5F5] p-3 rounded-2xl space-y-4">
@@ -120,39 +124,43 @@ function WorkHistory() {
             </div>
           </div>
 
-        
-<div className="bg-[#82828280] rounded-2xl p-4 flex flex-col sm:flex-row gap-4">
-  <div className="flex-1">
-    <p className="font-semibold text-xs mb-1">KEY RESPONSIBILITIES</p>
-    <textarea
-      value={responsibilities}
-      onChange={(e) => setResponsibilities(e.target.value)}
-      placeholder="Tip: Use bullet points to highlight what you did and how it helped the company."
-      className="w-full bg-[#F5F5F5] rounded-[6px] p-3 h-40 text-[10px]"
-    > </textarea>
-  </div>
+          <div className="bg-[#82828280] rounded-2xl p-4 flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <p className="font-semibold text-xs mb-1">KEY RESPONSIBILITIES</p>
+              <textarea
+                value={responsibilities}
+                onChange={(e) => setResponsibilities(e.target.value)}
+                placeholder="Tip: Use bullet points to highlight what you did and how it helped the company."
+                className="w-full bg-[#F5F5F5] rounded-[6px] p-3 h-40 text-[10px]"
+              >
+                {" "}
+              </textarea>
+            </div>
 
-  <div className="w-full sm:w-56 p-2 rounded-lg">
-    <p className="font-semibold text-xs mb-1">START DATE</p>
-    <InputWithIcon
-      type="date"
-      value={startDate}
-      onChange={(e) => setStartDate(e.target.value)}
-    /> <br />
-    <p className="font-semibold text-xs mb-1 mt-2">END DATE</p>
-    <InputWithIcon
-      type="date"
-      value={endDate}
-      onChange={(e) => setEndDate(e.target.value)}
-    />
-  </div>
-</div>
+            <div className="w-full sm:w-56 p-2 rounded-lg">
+              <p className="font-semibold text-xs mb-1">START DATE</p>
+              <InputWithIcon
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+              />{" "}
+              <br />
+              <p className="font-semibold text-xs mb-1 mt-2">END DATE</p>
+              <InputWithIcon
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+          </div>
 
           <div className="max-w-2xs mx-auto bg-[#00000040] mt-3 rounded-2xl flex">
             <button
               onClick={clearForm}
               className={`flex-1 h-16 flex items-center justify-center gap-2 text-white border-2 rounded-lg text-sm ${
-                allFilled ? "bg-black border-black" : "bg-transparent border-[#F5F5F5]"
+                allFilled
+                  ? "bg-black border-black"
+                  : "bg-transparent border-[#F5F5F5]"
               }`}
             >
               ADD MORE <FaPlus />
@@ -161,20 +169,19 @@ function WorkHistory() {
         </div>
       </div>
 
-
-         {allFilled && (
-              <div className="max-w-4xl px-4 mt-6  m-auto">
-                <div className="max-w-2xs m-auto  bg-[#E63357] text-white rounded-lg flex flex-col sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
-                  <div>
+      {allFilled && (
+        <div className="max-w-4xl px-4 mt-6  m-auto">
+          <div className="max-w-2xs m-auto  bg-[#1A3E32] text-white rounded-lg flex flex-col sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
+            <div>
               <p className="font-semibold">{jobTitle}</p>
               <p className="text-sm">@ {companyName}</p>
             </div>
-                  <button onClick={clearForm} className="text-white text-xl  ">
-                    <FaTrash />
-                  </button>
-                </div>
-              </div>
-            )}
+            <button onClick={clearForm} className="text-white text-xl  ">
+              <FaTrash />
+            </button>
+          </div>
+        </div>
+      )}
 
       <NavigationButtons
         isFormComplete={allFilled}

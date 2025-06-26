@@ -88,11 +88,12 @@ function Education() {
       <StepTabs steps={steps} currentStep={currentStep} />
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
 
-      <div className="max-w-3xl mx-auto mt-6 px-4 text-[#E63357] text-2xl font-semibold">
+      <div className="max-w-3xl mx-auto mt-6 px-4 text-[#1A3E32] text-2xl font-semibold">
         Skill
       </div>
       <p className="max-w-3xl mx-auto px-4 text-[#333] text-sm mb-6">
-        Highlight what you’re great at. This helps employers match you to the right role
+        Highlight what you’re great at. This helps employers match you to the
+        right role
       </p>
 
       <div className="max-w-full md:max-w-4xl mx-auto border-2 border-[#E0E0E0] p-4">
@@ -128,27 +129,26 @@ function Education() {
             </div>
           </div>
 
-        
           <div className=" max-w-2xs  bg-[#00000040] mt-3 rounded-2xl   flex flex-col sm:flex-row gap-4   ">
-         
             <div className="flex-1 flex items-end">
               <button
                 onClick={clearForm}
                 className={`flex-1 h-16 flex items-center justify-center gap-2 text-white border-2 rounded-lg text-sm ${
-                  allFilled ? "bg-black border-black" : "bg-transparent border-[#F5F5F5]"
+                  allFilled
+                    ? "bg-black border-black"
+                    : "bg-transparent border-[#F5F5F5]"
                 }`}
               >
                 ADD MORE <FaPlus />
               </button>
             </div>
           </div>
-
         </div>
       </div>
 
       {allFilled && (
         <div className="max-w-4xl px-4 mt-6  m-auto">
-          <div className="max-w-2xs m-auto  bg-[#E63357] text-white rounded-lg flex flex-col sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
+          <div className="max-w-2xs m-auto  bg-[#1A3E32] text-white rounded-lg flex flex-col sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
             <div>
               <p className="font-semibold">{category}</p>
               <p className="text-sm">{experience} Experience</p>

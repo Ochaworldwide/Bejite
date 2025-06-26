@@ -146,7 +146,7 @@ function Education() {
       <StepTabs steps={steps} currentStep={currentStep} />
       <ProgressBar currentStep={currentStep} totalSteps={steps.length} />
 
-      <div className="max-w-3xl mx-auto mt-6 px-4 text-[#E63357] text-2xl font-semibold">
+      <div className="max-w-3xl mx-auto mt-6 px-4 text-[#1A3E32] text-2xl font-semibold">
         Education
       </div>
       <p className="max-w-3xl mx-auto px-4 text-[#333] text-sm mb-6">
@@ -241,7 +241,7 @@ function Education() {
 
       {allFilled && (
         <div className="max-w-4xl px-4 mt-6   m-auto ">
-          <div className="max-w-2xs  bg-[#E63357] text-white rounded-lg flex flex-col m-auto sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
+          <div className="max-w-2xs  bg-[#1A3E32] text-white rounded-lg flex flex-col m-auto sm:flex-row justify-between  sm:items-center p-4 space-y-2 sm:space-y-0">
             <div>
               <p className="font-semibold">{fieldOfStudy}</p>
               <p className="text-sm">
