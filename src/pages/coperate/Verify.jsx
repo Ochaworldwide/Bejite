@@ -27,9 +27,9 @@ const CoperateVerify = () => {
         {!showConsent ? (
           // ✅ Initial verification instructions
           <div className="lg:w-[45%] w-full mx-auto rounded-2xl p-5 flex flex-col gap-y-6 items-center">
-            <h1 className="text-xl font-[500] italic">Almost there</h1>
+            <h1 className="text-xl font-[500] text-[#16730F] italic">Almost there</h1>
 
-            <h1 className="text-[#1A3E32] font-[600] text-3xl text-center">
+            <h1 className="text-[#16730F] font-[600] text-3xl text-center">
               Confirm Your Legal Role
             </h1>
 

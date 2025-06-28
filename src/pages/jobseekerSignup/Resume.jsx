@@ -22,17 +22,17 @@ const Resume = () => {
         </div>
 
         <div className="w-full max-w-3xl mb-8">
-          <p className="text-2xl sm:text-3xl md:text-5xl font-norican font-semibold text-[#E63357] mb-4">
+          <p className="text-2xl sm:text-3xl md:text-5xl font-norican font-semibold text-[#16730F] mb-4">
             Build Your Resume. Get Noticed.
           </p>
-          <p className="text-[#FF6F61] text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+          <p className="text-[#333] text-base sm:text-lg md:text-xl font-normal leading-relaxed">
             Follow the next steps to create a smart, professional CV that connects <br className="hidden sm:block" />
             you to the right employers faster and easier.
           </p>
         </div>
 
         <div className="mt-4 w-full flex justify-center">
-          <button className="w-full max-w-[321px] h-12 bg-[#E63357] border border-[#E63357] rounded-[30px] text-white shadow-md text-base font-medium transition-all hover:bg-[#d42d4d]"
+          <button className="w-full max-w-[321px] h-12 bg-[#16730F] border border-none rounded-[30px] text-white shadow-md text-base font-medium transition-all hover:bg-[#1A3E32]"
            onClick={()=>navigate("/bio")}>
             
             Get Started

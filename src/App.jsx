@@ -7,18 +7,18 @@ import SignUp from "./pages/SignUp";
 import VerifyEmail from "./pages/VerifyEmail";
 import ConfirmPassword from "./pages/ConfirmPassword";
 import SignUpRole from "./pages/SignUpRole";
-import JobConnection from "./pages/JobConnection";
-import JobSeekerOpt from "./pages/JobSeekerOpt";
-import Resume from "./pages/Resume";
-import Bio from "./pages/Bio";
-import Education from "./pages/Education";
+import JobConnection from "./pages/jobseekerSignup/JobConnection.jsx";
+import JobSeekerOpt from "./pages/jobseekerSignup/JobSeekerOpt.jsx";
+import Resume from "./pages/jobseekerSignup/Resume.jsx";
+import Bio from "./pages/jobseekerSignup/cvBuilder/Bio.jsx";
+import Education from "./pages/jobseekerSignup/cvBuilder/Education.jsx";
 import ResumeLayout from "./components/ResumeLayout";
-import Skills from "./pages/Skills";
-import WorkHistory from "./pages/WorkHistory";
-import Certificate from "./pages/Certificate";
-import Link from "./pages/Link";
-import JobType from "./pages/JobType";
-import SaveProgress from "./pages/SaveProgress";
+import Skills from "./pages/jobseekerSignup/cvBuilder/Skills.jsx";
+import WorkHistory from "./pages/jobseekerSignup/cvBuilder/WorkHistory.jsx";
+import Certificate from "./pages/jobseekerSignup/cvBuilder/Certificate.jsx";
+import Link from "./pages/jobseekerSignup/cvBuilder/Link.jsx";
+import JobType from "./pages/jobseekerSignup/JobType.jsx";
+import SaveProgress from "./pages/jobseekerSignup/SaveProgress.jsx";
 import EmployerOpt from "./pages/EmployerOpt";
 import BasicDetails from "./pages/coperate/BasicDetails.jsx";
 import ProfileSetup from "./pages/individual/ProfileSetup";
@@ -51,7 +51,7 @@ function App() {
         <Route path="/employer-option" element={<EmployerOpt />} />
         <Route path="/jobconnection" element={<JobConnection />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/save-progress" element={<SaveProgress />} />
+        <Route path="/save-progress" element={<SaveProgress/>} />
 
         <Route element={<ResumeLayout />}>
           <Route path="/bio" element={<Bio />} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import MemberCard from "../components/MemberCard";
+import MemberCard from "../../components/MemberCard";
 
 const JobSeekerOpt = () => {
   const [showActiveInfo, setShowActiveInfo] = useState(false);
@@ -32,8 +32,8 @@ const JobSeekerOpt = () => {
 
     
       <div className="w-full px-4 sm:max-w-xl text-center mt-[10%]">
-        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#E63357]">As a Jobseeker</p>
-        <p className="text-lg sm:text-xl text-[#FF6F61] mt-2">
+        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#16730F]">As a Jobseeker</p>
+        <p className="text-lg sm:text-xl text-[#333] mt-2">
           Select one of the listed options below
         </p>
       </div>

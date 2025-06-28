@@ -1,14 +1,11 @@
 
-
-
-
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import StepTabs from "../components/StepTabs";
-import ProgressBar from "../components/ProgressBar";
+import Header from "../../../components/Header";
+import StepTabs from "../../../components/StepTabs";
+import ProgressBar from "../../../components/ProgressBar";
 import { useOutletContext, useNavigate } from "react-router-dom";
-import NavigationButtons from "../components/NavigationButtons";
-import { FaPlus, FaCheckCircle, FaChevronDown, FaTrash } from "react-icons/fa";
+import NavigationButtons from "../../../components/NavigationButtons";
+import { FaPlus, FaCheckCircle, FaChevronDown, FaTrash, FaCheck } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 
 const skillOptions = [
@@ -43,7 +40,7 @@ const SelectWithIcon = ({ value, onChange, options, placeholder }) => (
     <select
       value={value}
       onChange={onChange}
-      className={`w-full h-12 border-2 rounded-[10px] pl-4 pr-10 appearance-none ${
+      className={`w-full h-12 border-2 rounded-[10px] pl-4 pr-10 appearance-none focus:outline-1 focus:outline-[#1A3E32] ${
         value ? "border-[#828282]" : "border-[#F5F5F5]"
       }`}
     >
@@ -55,7 +52,7 @@ const SelectWithIcon = ({ value, onChange, options, placeholder }) => (
       ))}
     </select>
     {value ? (
-      <FaCheckCircle className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500 text-lg" />
+      <FaCheck className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500 text-lg" />
     ) : (
       <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg pointer-events-none" />
     )}

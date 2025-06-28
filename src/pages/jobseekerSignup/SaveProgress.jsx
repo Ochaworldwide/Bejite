@@ -14,7 +14,7 @@ function SaveProgress() {
   return (
     <div className="bg-white flex items-center justify-center w-full min-h-screen px-4">
       <div className="flex flex-col items-center justify-center space-y-8 w-full max-w-md">
-        <p className="text-center text-[#E63357] text-[20px] font-semibold">
+        <p className="text-center text-[#16730F] text-[20px] font-semibold">
           Sign in to save your progress
         </p>
 
@@ -24,7 +24,7 @@ function SaveProgress() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 border border-pink-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 placeholder-pink-300"
+            className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A3E32] placeholder-[#1A3E32]"
           />
 
           <div className="relative">
@@ -33,7 +33,7 @@ function SaveProgress() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border border-pink-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-300 placeholder-pink-300 pr-12"
+              className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A3E32] placeholder-[#1A3E32] pr-12"
             />
             <button
               type="button"
@@ -49,8 +49,8 @@ function SaveProgress() {
           disabled={isDisabled}
           className={`w-full py-4 rounded-full text-white font-semibold transition shadow-md ${
             isDisabled
-              ? "bg-[#E6335740] cursor-not-allowed"
-              : "bg-[#FF3C61] hover:opacity-90"
+              ? "bg-[#1A3E32] cursor-not-allowed"
+              : "bg-[#16730F] hover:opacity-90"
           }`}
         >
           Login

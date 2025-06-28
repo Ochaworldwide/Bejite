@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import StepTabs from '../components/StepTabs';
-import ProgressBar from '../components/ProgressBar';
-import ImageUpload from '../components/ImageUpload';
-import FieldGroup from '../components/FieldGroup';
-import NavigationButtons from '../components/NavigationButtons';
-import Header from '../components/Header';
+import StepTabs from '../../../components/StepTabs';
+import ProgressBar from '../../../components/ProgressBar';
+import ImageUpload from '../../../components/ImageUpload';
+import FieldGroup from '../../../components/FieldGroup';
+import NavigationButtons from '../../../components/NavigationButtons';
+import Header from '../../../components/Header';
 
 const Bio = () => {
   const navigate = useNavigate();

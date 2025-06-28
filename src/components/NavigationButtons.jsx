@@ -13,7 +13,7 @@ const NavigationButtons = ({ isFormComplete, onBack, onNext }) => (
 
     <button
       className={`w-full shadow-md sm:w-[107px] ${
-        isFormComplete ? "bg-[#1A3E32] cursor-pointer" : "bg-[#16730F40] cursor-not-allowed"
+        isFormComplete ? "bg-[#16730F] cursor-pointer" : "bg-[#16730F40] cursor-not-allowed"
       } rounded-2xl h-9 text-center text-white text-[14px]`}
       disabled={!isFormComplete}
       onClick={onNext}

@@ -46,7 +46,7 @@ function SignIn() {
 
         <div className="w-full lg:w-[40%] flex lg:justify-start items-center justify-center px-6 py-10">
           <div className="w-full max-w-md space-y-5">
-            <h2 className="text-3xl font-norican font-semibold text-[#1A3E32] text-center ">
+            <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center ">
               Welcome Back!
             </h2>
             <p className="text-center text-[#1A3E32] text-md">

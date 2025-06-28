@@ -32,7 +32,7 @@ const EmployerOpt = () => {
         <h1 className="lg:text-5xl text-2xl text-[#16730F] font-[500] leading-relaxed">
           As an Employer
         </h1>
-        <p className="lg:text-xl text-center text-[#6B8E23] font-[400] leading-relaxed">
+        <p className="lg:text-xl text-center text-[#333] font-[400] leading-relaxed">
           Choose the account type that fits your hiring needs
         </p>
 

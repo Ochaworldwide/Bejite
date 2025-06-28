@@ -14,7 +14,7 @@ const SignUpRole = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center w-full px-4 py-10 sm:py-20 mt-[5%]">
-        <p className="text-3xl sm:text-5xl font-norican font-semibold text-[#E63357]  text-center">
+        <p className="text-3xl sm:text-5xl font-norican font-semibold text-[#16730F]  text-center">
           Sign UP As
         </p>
 
