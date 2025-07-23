@@ -36,6 +36,13 @@ import CoperateLocation from "./pages/coperate/Location.jsx";
 import CoperateVerify from "./pages/coperate/Verify.jsx";
 import CoperateUploadDoc from "./pages/coperate/UploadDoc.jsx";
 import CoperateInReview from "./pages/coperate/InReview.jsx";
+import EmployersDashboard from "./pages/employerDashboard/EmployersDashboard.jsx";
+import Recruitment from "./pages/employerDashboard/Recruitment.jsx";
+import SearchCriteria from "./pages/employerDashboard/SearchCriteria.jsx";
+import SearchResult from "./pages/employerDashboard/SearchResult.jsx";
+import SearchCriteriarBlock from "./pages/employerDashboard/SearchCriteriarBlock.jsx";
+import CandidateSearchPage from "./pages/employerDashboard/CandidateSearchPage.jsx";
+
 
 function App() {
   return (
@@ -51,7 +58,14 @@ function App() {
         <Route path="/employer-option" element={<EmployerOpt />} />
         <Route path="/jobconnection" element={<JobConnection />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/save-progress" element={<SaveProgress/>} />
+        <Route path="/save-progress" element={<SaveProgress/>} />\
+        
+         <Route path="/employer-dashboard" element={<EmployersDashboard/>} />
+           <Route path="/recruitment" element={<Recruitment />} />
+           <Route path="/search-criteria" element={<CandidateSearchPage />} />
+           <Route path="/search-criteria-block" element={<SearchCriteriarBlock />} />
+           {/* <Route path="/search-result" element={<SearchResult />} /> */}
+           
 
         <Route element={<ResumeLayout />}>
           <Route path="/bio" element={<Bio />} />

@@ -36,19 +36,19 @@ function SignUp() {
       <div className="flex flex-col lg:flex-row flex-1 justify-between relative ">
         <div className="w-full lg:w-[60%] relative hidden lg:block ">
           <img
-            src="/assets/images/auth.svg"
+            src="/assets/images/Illustra.svg"
             alt="Auth"
             className="w-full h-screen "
           />
           <img
-            src="/assets/images/auth_text.png"
+            src="/assets/images/asubtext.svg"
             alt="Auth Text"
             className="absolute top-3/7 left-[46%] transform -translate-x-1/2 -translate-y-1/2"
           />
         </div>
 
         <div className="w-full lg:w-[40%] flex items-center justify-center lg:justify-start px-6 py-10">
-          <div className="w-full max-w-md space-y-7">
+          <div className="w-full max-w-md space-y-2">
             <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">
               Sign Up
             </h2>
