@@ -1,8 +1,7 @@
 
-
 import React from "react";
 import { FaCheck, FaSearch } from "react-icons/fa";
-import NewsFeedHeader from "../../components/NewsFeedHeader";
+import NewsFeedHeader from "../NewsFeedHeader";
 
 const SearchCriteria = ({ formData, setFormData, isFormComplete, onSearch }) => {
   const handleChange = (e) => {
@@ -81,8 +80,7 @@ const SearchCriteria = ({ formData, setFormData, isFormComplete, onSearch }) => 
         <Divider />
 
         <div className="max-w-3xl mx-auto rounded-2xl p-4 sm:p-6 bg-white shadow-sm space-y-4">
-          {/* ... all your inputs ... */}
-          {/* Example for the full set */}
+         
           <SearchInput id="jobInput" label="JOB TITLE" options={["Software Engineer","Product Designer","Data Analyst","Project Manager","Marketing Specialist"]} placeholder="Enter your job or select from list" />
           <SearchInput id="industryInput" label="INDUSTRY" options={["Technology","Healthcare","Finance","Education","Retail"]} placeholder="Enter sector" />
           <SearchInput id="countryInput" label="PREFERRED COUNTRY" options={["United States","United Kingdom","Canada","Germany","Australia"]} placeholder="Enter or select" />
@@ -112,7 +110,7 @@ const SearchCriteria = ({ formData, setFormData, isFormComplete, onSearch }) => 
             <SearchInput id="maritalInput" label="MARITAL" options={["Single","Married","Divorced","Widowed","Separated"]} placeholder="Enter or select" />
           </GroupedInputs>
 
-          {/* Submit button */}
+          
           <div className="mt-6 sm:mt-10">
             <button
               onClick={onSearch}

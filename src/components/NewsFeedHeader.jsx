@@ -22,19 +22,19 @@ const NewsFeedHeader = ({
   const handleIconClick = (name) => {
     switch (name) {
       case "home-icon":
-        navigate("/employer-dashboard");
+        navigate("/post-page");
         break;
       case "CHAT":
-        navigate("/search-criteria-block");
+        navigate("/chats");
         break;
       case "notice":
-        navigate("/search-criteria");
+        navigate("/candidate-search-page");
         break;
       case "recruitment":
         navigate("/recruitment");
         break;
       case "connection":
-        navigate("/search-result");
+        navigate("/connection");
         break;
       default:
         console.log("Icon not defined");

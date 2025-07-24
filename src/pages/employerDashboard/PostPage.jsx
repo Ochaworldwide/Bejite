@@ -4,7 +4,7 @@ import NewsFeedHeader from "../../components/NewsFeedHeader";
 import { FaArrowLeft, FaHome } from "react-icons/fa";
 import PostContainer from "../../components/PostContainer";
 
-const EmployersDashBoard = () => {
+const PostPage = () => {
   return (
     <div>
       <NewsFeedHeader />  
@@ -15,7 +15,7 @@ const EmployersDashBoard = () => {
   );
 };
 
-export default EmployersDashBoard;
+export default PostPage;
 
 
 
