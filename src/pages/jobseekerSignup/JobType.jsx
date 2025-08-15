@@ -236,9 +236,9 @@ const handleSubmit = async () => {
         isFormComplete={allFilled}
         onBack={() => navigate(-1)}
         onNext={() =>
-          // allFilled &&
-          // navigate("/save-progress")
-          handleSubmit()
+          allFilled &&
+          navigate("/save-progress")
+          // handleSubmit()
         }
       />
     </div>
