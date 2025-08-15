@@ -233,11 +233,7 @@ function Education() {
 </div>
 
 
-
-
-
-          </div>
-
+   </div>
           <div className="bg-[#82828280] rounded-2xl p-4 flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <p className="font-semibold text-xs mb-1">START DATE</p>

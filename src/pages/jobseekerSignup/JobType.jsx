@@ -129,7 +129,7 @@ function JobType() {
               <p className="text-[12px] font-semibold mb-1">EXPECTED SALARY</p>
               <div className="relative w-full">
                 <input
-                  type="text"
+                  type="number"
                   value={form.salary}
                   onChange={updateField("salary")}
                   className="w-full text-[#33333380] text-sm p-3 pr-10 rounded-[10px]

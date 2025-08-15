@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaHome, FaList, FaSearch } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -11,6 +11,7 @@ const NewsFeedHeader = ({
   },
   onSearch = () => {},
 }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -46,20 +47,27 @@ const NewsFeedHeader = ({
     }
   };
 
+  const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
+  useEffect(() => {
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "auto";
+  }, [isSidebarOpen]);
+
   return (
-    <header className="bg-[#F5F5F5] w-full">
+    <header className="bg-[#F5F5F5] w-full relative z-50">
       <div className="max-w-[1440px] w-full mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-3 gap-3 sm:gap-4">
-      
         <div className="w-full sm:w-auto flex items-center justify-between">
           <img
             src="assets/images/logo.png"
             alt="Logo"
             className="h-10 md:h-14 lg:h-16"
           />
-          <FaList className="text-2xl text-[#333] block sm:hidden" />
+          <FaList
+            className="text-2xl text-[#333] block sm:hidden cursor-pointer"
+            onClick={toggleSidebar}
+          />
         </div>
 
-       
         <div className="relative w-full sm:w-[250px] md:max-w-[350px] lg:max-w-[400px]">
           <input
             type="text"
@@ -99,7 +107,6 @@ const NewsFeedHeader = ({
           ))}
         </div>
 
-        
         <div className="flex items-center gap-2 md:gap-3 w-full sm:w-auto justify-between sm:justify-normal">
           <div className="relative">
             <img
@@ -120,22 +127,50 @@ const NewsFeedHeader = ({
                 className="bg-[#16730F] text-white rounded-3xl px-2 py-0.5 sm:px-3 sm:py-1 mt-0.5 text-xs sm:text-sm md:text-base focus:outline-none"
               >
                 <option value="employer">Employer</option>
-             
               </select>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Sidebar */}
+      {isSidebarOpen && (
+        <div className="fixed top-0 left-0 w-3/4 max-w-[250px] h-full bg-white shadow-lg z-50 p-4 transition-transform sm:hidden">
+          <button
+            onClick={toggleSidebar}
+            className="text-[#16730F] font-bold text-lg mb-4"
+          >
+            ✕ Close
+          </button>
+          <nav className="flex flex-col gap-4">
+            {["home-icon", "CHAT", "notifications", "recruitment", "connection"].map((name, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 cursor-pointer"
+                onClick={() => {
+                  handleIconClick(name);
+                  setIsSidebarOpen(false);
+                }}
+              >
+                {name === "home-icon" ? (
+                  <FaHome className="text-[#16730F]" />
+                ) : (
+                  <img
+                    src={`assets/images/${name}.svg`}
+                    alt={name}
+                    className="h-5"
+                  />
+                )}
+                <span className="text-[#1A3E32] font-medium capitalize text-sm">
+                  {name === "home-icon" ? "News Feed" : name.toLowerCase()}
+                </span>
+              </div>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
 
 export default NewsFeedHeader;
-
-
-
-
-
-
-
-
