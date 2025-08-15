@@ -32,77 +32,17 @@ const JobSeekerOpt = () => {
       </div>
 
       <div className="w-full px-4 sm:max-w-xl text-center mt-[10%]">
-        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#16730F]">
-          As a Jobseeker
-        </p>
+        <p className=" font-dynapuff text-3xl sm:text-4xl  font-semibold text-[#16730F] ">As a Jobseeker</p>
         <p className="text-lg sm:text-xl text-[#333] mt-2">
           Select one of the listed options below
         </p>
       </div>
 
-      {/* <div className="w-full max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
+    
+      <div className="w-full   max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
         <MemberCard
-          label="ACTIVE MEMBER"
-          iconSrc="/assets/images/profile-tick.svg"
-          infoText="As an ACTIVE jobseeker, employers can search you out using the advanced search engine (ASE)."
-          position="above-icon"
-          showInfo={showActiveInfo}
-          setShowInfo={setShowActiveInfo}
-          containerRef={activeRef}
-          onClick={() => {
-            
-            if (mode === ""){
-              setMode("active_member");
-            }
-            navigate("/jobconnection", {
-              state: { email, firstName, lastName, role, mode },
-            });
-          }}
-        />
-
-        <MemberCard
-          label="FREELANCER"
-          iconSrc="/assets/images/freelic2.svg"
-          infoText="As a FREELANCER, employers can search you out using the advanced search engine (ASE)."
-          position="above-icon"
-          showInfo={showFreelancerInfo}
-          setShowInfo={setShowFreelancerInfo}
-          containerRef={freelancerRef}
-          onClick={() => {
-            if (mode === "") {
-              setMode("freelancer");
-              
-            }
-            navigate("/jobconnection", {
-              state: { email, firstName, lastName, role, mode },
-            });
-          }}
-        />
-
-        <MemberCard
-          label="INACTIVE MEMBER"
-          iconSrc="/assets/images/profile.svg"
-          infoText="As an INACTIVE jobseeker, employers cannot search you out on the platform."
-          position="below-card"
-          showInfo={showInactiveInfo}
-          setShowInfo={setShowInactiveInfo}
-          containerRef={inactiveRef}
-          onClick={() => {
-            if (mode === "") {
-              setMode("inactive_member");
-              
-            }
-            navigate("/jobconnection", {
-              state: { email, firstName, lastName, role, mode },
-            });
-          }}
-        />
-      </div> */}
-
-      <div className="w-full max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
-        <MemberCard
-          label="ACTIVE MEMBER"
-          iconSrc="/assets/images/profile-tick.svg"
+          label={<span className="italic cursor-pointer"> ACTIVE JOBSEEKER</span>}
+          iconSrc="/assets/images/profile-tick.svg" 
           infoText="As an ACTIVE jobseeker, employers can search you out using the advanced search engine (ASE)."
           position="above-icon"
           showInfo={showActiveInfo}
@@ -123,7 +63,7 @@ const JobSeekerOpt = () => {
         />
 
         <MemberCard
-          label="FREELANCER"
+          label={<span className="cursor-pointer italic">FREELANCER</span>}
           iconSrc="/assets/images/freelic2.svg"
           infoText="As a FREELANCER, employers can search you out using the advanced search engine (ASE)."
           position="above-icon"
@@ -145,7 +85,7 @@ const JobSeekerOpt = () => {
         />
 
         <MemberCard
-          label="INACTIVE MEMBER"
+          label={<span className="cursor-pointer italic">INACTIVE JOBSEEKER</span>}
           iconSrc="/assets/images/profile.svg"
           infoText="As an INACTIVE jobseeker, employers cannot search you out on the platform."
           position="below-card"

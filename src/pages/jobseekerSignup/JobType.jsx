@@ -48,7 +48,7 @@ function JobType() {
     "Customer Service Representative", "Product Manager", "Human Resources Specialist", "Administrative Assistant", "Accountant",
     "Financial Analyst", "Business Analyst", "UX/UI Designer", "Operations Manager", "IT Support Specialist", "Mechanical Engineer",
     "Civil Engineer", "Electrician", "Plumber", "Teacher", "Nurse", "Physician", "Pharmacist", "Legal Assistant", "Attorney",
-    "Real Estate Agent", "Construction Worker", "Truck Driver", "Chef"
+    "Real Estate Agent", "Construction Worker", "Truck Driver", "Chef", "Not Available"
   ];
 
   const industries = [
@@ -56,7 +56,7 @@ function JobType() {
     "Transportation and Logistics", "Hospitality", "Energy", "Telecommunications", "Real Estate", "Legal",
     "Marketing and Advertising", "Media and Entertainment", "Agriculture", "Aerospace", "Biotechnology",
     "Automotive", "Nonprofit", "Government", "Insurance", "Pharmaceuticals", "Environmental Services",
-    "Engineering", "Consulting", "Human Resources", "Public Relations", "Utilities", "Mining"
+    "Engineering", "Consulting", "Human Resources", "Public Relations", "Utilities", "Mining", "Not Available"
   ];
 
   const countries = [
@@ -64,7 +64,7 @@ function JobType() {
     "Brazil", "Australia", "Italy", "Japan", "Kenya", "Mexico", "Netherlands", "Russia", "Spain", "Sweden", "Argentina",
     "Egypt", "Turkey", "South Korea", "Norway", "Poland", "Indonesia", "Saudi Arabia", "Thailand", "Vietnam",
     "Philippines", "Malaysia", "Greece", "Ukraine", "Pakistan", "Bangladesh", "New Zealand", "Colombia", "Chile",
-    "Peru", "Finland", "Portugal", "Denmark", "Switzerland", "Belgium", "Austria", "Ireland", "Czech Republic", "Hungary"
+    "Peru", "Finland", "Portugal", "Denmark", "Switzerland", "Belgium", "Austria", "Ireland", "Czech Republic", "Hungary", "Not Available"
   ];
 
   const states = [
@@ -73,9 +73,10 @@ function JobType() {
     "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "Federal Capital Territory"
   ];
 
+
   const workTypes = [
-    "Full-time", "Part-time", "Contract", "Temporary", "Internship", "Freelance", "Remote", "On-site", "Hybrid",
-    "Commission-based", "Volunteer", "Seasonal", "Per diem", "Apprenticeship", "Consultant"
+    "Full-time", "NYSC Posting", "Part-time", "Contract", "Temporary", "Paid Internship", "Freelance", "Remote", "On-site", "Hybrid",
+    "Commission-based", "Volunteer", "Unpaid volunteer internship" ,"Seasonal", "Per diem", "Apprenticeship", "Consultant", "	I.T (Industrial Training)"
   ];
 
   const currencies = [
@@ -142,10 +143,8 @@ const handleSubmit = async () => {
     <div className="min-h-screen py-4 px-2 sm:px-4">
       <Header />
       <div className="max-w-3xl mx-auto text-center space-y-2">
-        <p className="font-medium text-[#16730F] text-2xl">Almost there</p>
-        <p className="text-[#16730F] text-3xl font-semibold">
-          What type of job do you want
-        </p>
+        <p className="font-medium text-[#16730F] text-2xl">Almost there!</p>
+        <p className="text-[#16730F] text-3xl font-semibold">What type of job do you want?</p>
         <p className="text-[#000] text-sm font-light mt-5">
           Tell us exactly what you're looking for, so the right employers can
           find you faster. Our Advanced Search Engine (ASE) uses your
@@ -199,7 +198,7 @@ const handleSubmit = async () => {
               <p className="text-[12px] font-semibold mb-1">EXPECTED SALARY</p>
               <div className="relative w-full">
                 <input
-                  type="text"
+                  type="number"
                   value={form.salary}
                   onChange={updateField("salary")}
                   className="w-full text-[#33333380] text-sm p-3 pr-10 rounded-[10px]

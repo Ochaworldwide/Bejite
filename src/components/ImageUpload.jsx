@@ -27,8 +27,8 @@ const ImageUpload = ({ imagePreview, handleImageChange, bio, onBioChange }) => (
         name="bio"
         value={bio}
         onChange={onBioChange}
-        placeholder="Write short Bio about yourself"
-        className="w-full lg:w-44 bg-[#F5F5F5] text-center h-28 font-medium text-[10px] mt-2 focus:outline-1 focus:outline-[#1A3E32] "
+        placeholder="Write a short Bio about yourself"
+        className="w-full lg:w-44 bg-[#F5F5F5]  px-2 h-28 font-medium text-[10px] mt-2 focus:outline-1 focus:outline-[#1A3E32] "
       />
     )}
   </div>
