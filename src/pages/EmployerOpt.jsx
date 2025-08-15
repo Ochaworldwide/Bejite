@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MemberCard from "../components/MemberCard";
 
 const EmployerOpt = () => {
   const navigate = useNavigate();
+    const location = useLocation();
+    const { email, firstName, lastName, role } = location.state || {};
 
   const [showIndividualInfo, setShowIndividualInfo] = useState(false);
   const [showCoperateInfo, setShowCoperateInfo] = useState(false);
@@ -45,7 +47,19 @@ const EmployerOpt = () => {
             showInfo={showIndividualInfo}
             setShowInfo={setShowIndividualInfo}
             containerRef={individualRef}
-            onClick={() => navigate("/individual/basic-details")}
+            // onClick={() => navigate("/individual/basic-details")}
+            onClick={() => {
+              const selectedMode = "individual";
+              navigate("/individual/basic-details", {
+                state: {
+                  email,
+                  firstName,
+                  lastName,
+                  role,
+                  mode: selectedMode,
+                },
+              });
+            }}
           />
 
           <MemberCard
@@ -56,7 +70,19 @@ const EmployerOpt = () => {
             showInfo={showCoperateInfo}
             setShowInfo={setShowCoperateInfo}
             containerRef={coperateRef}
-            onClick={() => navigate("/coperate/Basic-details")}
+            // onClick={() => navigate("/coperate/Basic-details")}
+            onClick={() => {
+              const selectedMode = "coperate";
+              navigate("/coperate/Basic-details", {
+                state: {
+                  email,
+                  firstName,
+                  lastName,
+                  role,
+                  mode: selectedMode,
+                },
+              });
+            }}
           />
         </div>
       </div>

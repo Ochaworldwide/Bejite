@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MemberCard from "../../components/MemberCard";
 
 const JobSeekerOpt = () => {
@@ -12,6 +12,8 @@ const JobSeekerOpt = () => {
   const inactiveRef = useRef(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { email, firstName, lastName, role } = location.state || {};
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -25,29 +27,37 @@ const JobSeekerOpt = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col items-center ">
-      
       <div className="w-full px-4 py-6 flex items-center max-w-screen-xl">
         <img src="/assets/images/logo.png" alt="logo" className="h-10" />
       </div>
 
-    
       <div className="w-full px-4 sm:max-w-xl text-center mt-[10%]">
-        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#16730F]">As a Jobseeker</p>
+        <p className="text-3xl sm:text-4xl font-norican font-semibold text-[#16730F]">
+          As a Jobseeker
+        </p>
         <p className="text-lg sm:text-xl text-[#333] mt-2">
           Select one of the listed options below
         </p>
       </div>
 
-    
-      <div className="w-full max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
+      {/* <div className="w-full max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
         <MemberCard
           label="ACTIVE MEMBER"
-          iconSrc="/assets/images/profile-tick.svg" 
+          iconSrc="/assets/images/profile-tick.svg"
           infoText="As an ACTIVE jobseeker, employers can search you out using the advanced search engine (ASE)."
           position="above-icon"
           showInfo={showActiveInfo}
           setShowInfo={setShowActiveInfo}
           containerRef={activeRef}
+          onClick={() => {
+            
+            if (mode === ""){
+              setMode("active_member");
+            }
+            navigate("/jobconnection", {
+              state: { email, firstName, lastName, role, mode },
+            });
+          }}
         />
 
         <MemberCard
@@ -58,7 +68,15 @@ const JobSeekerOpt = () => {
           showInfo={showFreelancerInfo}
           setShowInfo={setShowFreelancerInfo}
           containerRef={freelancerRef}
-          onClick={() => navigate("/jobconnection")}
+          onClick={() => {
+            if (mode === "") {
+              setMode("freelancer");
+              
+            }
+            navigate("/jobconnection", {
+              state: { email, firstName, lastName, role, mode },
+            });
+          }}
         />
 
         <MemberCard
@@ -69,6 +87,83 @@ const JobSeekerOpt = () => {
           showInfo={showInactiveInfo}
           setShowInfo={setShowInactiveInfo}
           containerRef={inactiveRef}
+          onClick={() => {
+            if (mode === "") {
+              setMode("inactive_member");
+              
+            }
+            navigate("/jobconnection", {
+              state: { email, firstName, lastName, role, mode },
+            });
+          }}
+        />
+      </div> */}
+
+      <div className="w-full max-w-6xl px-4 mt-12 flex flex-wrap justify-center gap-6 py-6 bg-[#E0E0E01A] rounded-2xl border border-[#82828226]">
+        <MemberCard
+          label="ACTIVE MEMBER"
+          iconSrc="/assets/images/profile-tick.svg"
+          infoText="As an ACTIVE jobseeker, employers can search you out using the advanced search engine (ASE)."
+          position="above-icon"
+          showInfo={showActiveInfo}
+          setShowInfo={setShowActiveInfo}
+          containerRef={activeRef}
+          onClick={() => {
+            const selectedMode = "active_member";
+            navigate("/jobconnection", {
+              state: {
+                email,
+                firstName,
+                lastName,
+                role,
+                mode: selectedMode,
+              },
+            });
+          }}
+        />
+
+        <MemberCard
+          label="FREELANCER"
+          iconSrc="/assets/images/freelic2.svg"
+          infoText="As a FREELANCER, employers can search you out using the advanced search engine (ASE)."
+          position="above-icon"
+          showInfo={showFreelancerInfo}
+          setShowInfo={setShowFreelancerInfo}
+          containerRef={freelancerRef}
+          onClick={() => {
+            const selectedMode = "freelancer";
+            navigate("/jobconnection", {
+              state: {
+                email,
+                firstName,
+                lastName,
+                role,
+                mode: selectedMode,
+              },
+            });
+          }}
+        />
+
+        <MemberCard
+          label="INACTIVE MEMBER"
+          iconSrc="/assets/images/profile.svg"
+          infoText="As an INACTIVE jobseeker, employers cannot search you out on the platform."
+          position="below-card"
+          showInfo={showInactiveInfo}
+          setShowInfo={setShowInactiveInfo}
+          containerRef={inactiveRef}
+          onClick={() => {
+            const selectedMode = "inactive_member";
+            navigate("/jobconnection", {
+              state: {
+                email,
+                firstName,
+                lastName,
+                role,
+                mode: selectedMode,
+              },
+            });
+          }}
         />
       </div>
     </div>

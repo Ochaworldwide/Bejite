@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../../../components/Header";
 import StepTabs from "../../../components/StepTabs";
 import ProgressBar from "../../../components/ProgressBar";
-import { useOutletContext, useNavigate } from "react-router-dom";
+import { useOutletContext, useNavigate, useLocation } from "react-router-dom";
 import NavigationButtons from "../../../components/NavigationButtons";
 import { FaPlus, FaCheckCircle, FaChevronDown, FaTrash, FaCheck } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
@@ -103,7 +103,7 @@ function Education() {
 
   const [educationLevel, setEducationLevel] = useState("");
   const [institutionName, setInstitutionName] = useState("");
-  const [location, setLocation] = useState("");
+  const [userLocation, setLocation] = useState("");
   const [fieldOfStudy, setFieldOfStudy] = useState("");
   const [degree, setDegree] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -114,7 +114,7 @@ function Education() {
     setAllFilled(
       educationLevel &&
         institutionName &&
-        location &&
+        userLocation &&
         fieldOfStudy &&
         degree.trim() &&
         startDate &&
@@ -123,7 +123,7 @@ function Education() {
   }, [
     educationLevel,
     institutionName,
-    location,
+    userLocation,
     fieldOfStudy,
     degree,
     startDate,
@@ -139,6 +139,12 @@ function Education() {
     setStartDate("");
     setEndDate("");
   };
+  
+
+        const location = useLocation();
+
+        const { email, firstName, lastName, role, mode, followings } =
+          location.state || {};
 
   return (
     <div className=" min-h-screen py-4">
@@ -178,7 +184,7 @@ function Education() {
             <div className="flex-1">
               <p className="font-semibold text-xs mb-1">LOCATION</p>
               <SelectWithIcon
-                value={location}
+                value={userLocation}
                 onChange={(e) => setLocation(e.target.value)}
                 options={optionsLoc}
                 placeholder="Select location..."
@@ -258,7 +264,12 @@ function Education() {
       <NavigationButtons
         isFormComplete={allFilled}
         onBack={() => navigate(-1)}
-        onNext={() => allFilled && navigate("/skills")}
+        onNext={() =>
+          allFilled &&
+          navigate("/skills", {
+            state: { email, firstName, lastName, role, mode, followings },
+          })
+        }
       />
     </div>
   );
