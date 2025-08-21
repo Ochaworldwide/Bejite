@@ -13,7 +13,7 @@ export default function PaymentType() {
         <p className="mt-12 text-2xl font-normal text-center">Choose Payment Type</p>
         <p className="text-base font-normal text-center">How would you like to pay?</p>
 
-        <div className="bg-[#16730F] border-[#1A3E32] border-2 rounded-2xl flex justify-between items-center w-[565px] h-[80px] px-3.5 cursor-pointer m-auto mt-20">
+        <div className="bg-[#16730F] border-[#1A3E32] border-2 rounded-2xl flex justify-between items-center max-w-[565px] h-[80px] px-3.5 cursor-pointer m-auto mt-20 flex-col py-2.5 md:flex-row">
           <div className="text-[#FFFFFF] font-semibold">Debit/Credit Card</div>
           <div className="flex gap-1.5">
             <span className={spanStyle}>
@@ -54,7 +54,7 @@ export default function PaymentType() {
         </div>
 
 
-        <div className="bg-[#16730F] border-[#1A3E32] border-2 rounded-2xl flex justify-between items-center w-[565px] h-[80px] px-3.5 cursor-pointer m-auto mt-2.5">
+        <div className="bg-[#16730F] border-[#1A3E32] border-2 rounded-2xl flex justify-between items-center max-w-[565px] h-[80px] px-3.5 cursor-pointer m-auto mt-2.5 flex-col md:flex-row py-2.5">
           <div className="text-[#FFFFFF] font-semibold">Cryptocurrency</div>
           <div className="flex gap-1.5">
             <img
