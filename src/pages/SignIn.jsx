@@ -1,41 +1,41 @@
-
-
-
-import { Eye, EyeOff } from 'lucide-react';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../services/axios';
+import { Eye, EyeOff } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../services/axios";
 
 function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const isDisabled = !email || !password;
+  const isDisabled = !email || !password || loading; // Disable the button state if loading
   const navigate = useNavigate();
 
-
-
   const handleLogin = async () => {
-  const payload = {
-    email,
-    password,
-  };
+    const payload = { email, password };
+    setLoading(true); // Start loading
 
-  try {
-    const response = await axiosInstance.post("/auth/login", payload); // replace with your real endpoint
+    try {
+      const response = await axiosInstance.post(
+        "http://localhost:8000/api/auth/login",
+        payload
+      );
 
-    if (response.data.success) {
-      console.log("Sign-in successful:", response.data);
-      return response.data;
-    } else {
-      console.error("Sign-in error:", response.data.message);
-      return null;
+      if (response.data && response.data.token) {
+        localStorage.setItem("authToken", response.data.token);
+        console.log("Sign-in successful:", response.data);
+        navigate("/post-page");
+      } else {
+        console.error("Sign-in error: No token returned");
+        alert("Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Sign-in failed:", error);
+      alert("Invalid email or password");
+    } finally {
+      setLoading(false); //Stop loading no matter what
     }
-  } catch (error) {
-    console.error("Sign-in failed:", error);
-    return null;
-  }
   };
 
   return (
@@ -89,7 +89,7 @@ function SignIn() {
               />
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -118,13 +118,12 @@ function SignIn() {
               disabled={isDisabled}
               className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition ${
                 isDisabled
-                  ? 'bg-[#16730F40] cursor-not-allowed'
-                  : 'bg-[#16730F]'
+                  ? "bg-[#16730F40] cursor-not-allowed"
+                  : "bg-[#16730F] cursor-pointer"
               }`}
-              onClick={()=> navigate('/post-page')}
-              // onClick={()=> handleLogin()}
+              onClick={handleLogin}
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
             </button>
           </div>
         </div>
@@ -134,6 +133,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
-
-

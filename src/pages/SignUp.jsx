@@ -1,4 +1,3 @@
-
 // import { Eye, EyeOff } from 'lucide-react';
 // import React, { useState } from 'react'
 // import { FaGoogle, FaLinkedin } from 'react-icons/fa';
@@ -110,13 +109,10 @@
 //         </div>
 //       </div>
 //     </div>
-//   );  
+//   );
 // }
 
 // export default SignUp;
-
-
-
 
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
@@ -162,23 +158,21 @@ function SignUp() {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-
       <div className="w-full lg:w-[70%] px-4 py-6 mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 lg:absolute lg:right-4 lg:left-4 lg:top-1/12 lg:transform lg:-translate-y-1/2 lg:z-10">
-  <img src="/assets/images/logo.png" alt="Logo" className="h-10" />
+        <img src="/assets/images/logo.png" alt="Logo" className="h-10" />
 
-  <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
-    <h1 className="text-[#828282] text-base sm:text-xl font-medium text-center sm:text-left">
-      Already have an account?
-    </h1>
-    <button
-      className="bg-[#16730F] py-2 px-5 sm:py-3 sm:px-7 rounded-2xl shadow text-white"
-      onClick={() => navigate("/")}
-    >
-      Sign in
-    </button>
-  </div>
-</div>
-
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+          <h1 className="text-[#828282] text-base sm:text-xl font-medium text-center sm:text-left">
+            Already have an account?
+          </h1>
+          <button
+            className="bg-[#16730F] py-2 px-5 sm:py-3 sm:px-7 rounded-2xl shadow text-white cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
 
       <div className="flex flex-col lg:flex-row flex-1 justify-between relative ">
         <div className="w-full lg:w-[60%] relative hidden lg:block">
@@ -244,8 +238,6 @@ function SignUp() {
                   <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                 )}
               </div>
-
-
             </div>
 
             <button
@@ -259,7 +251,9 @@ function SignUp() {
               Continue
             </button>
 
-            <p className="text-[#1A3E32] text-center text-xl">...or signup with</p>
+            <p className="text-[#1A3E32] text-center text-xl">
+              ...or signup with
+            </p>
             <div className="flex justify-center gap-6 mt-4">
               <FaLinkedin className="text-blue-600 text-3xl cursor-pointer" />
               <img
@@ -281,4 +275,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
