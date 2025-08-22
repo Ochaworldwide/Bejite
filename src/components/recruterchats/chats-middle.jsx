@@ -73,8 +73,8 @@ export default function ChatsMiddle(){
     </div>
   </div>
 
-  <div className="px-6 py-3 border-t bg-white">
-  <div className="flex flex-col  gap-2 border border-[#16730F] rounded px-4 py-3 bg-gray-100 shadow-sm">
+  <div className="px-6 py-3  bg-white">
+  <div className="flex flex-col  gap-2 border border-[#16730F] rounded-2xl px-4 py-3 bg-gray-100 shadow-sm">
     
 
     {/* Input */}
