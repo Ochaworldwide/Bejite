@@ -58,7 +58,7 @@ function App() {
         <Route path="/employer-option" element={<EmployerOpt />} />
         <Route path="/jobconnection" element={<JobConnection />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/save-progress" element={<SaveProgress />} />\
+        <Route path="/save-progress" element={<SaveProgress />} />
 
 
         <Route element={<ResumeLayout />}>
