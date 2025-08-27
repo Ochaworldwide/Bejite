@@ -5,7 +5,7 @@ import RoleCard from '../components/RoleCard';
 const SignUpRole = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { email, firstName, lastName } = location.state || {};
+    const { email, firstName, lastName, password } = location.state || {};
 
     const handleRoleSelect = (selectedRole) => {
         navigate(
@@ -17,6 +17,7 @@ const SignUpRole = () => {
                     email,
                     firstName,
                     lastName,
+                    password,
                     role: selectedRole,
                 },
             }

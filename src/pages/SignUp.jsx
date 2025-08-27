@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
 import { FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import Input from '../components/ui/Input';
 
 function SignUp() {
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    const isDisabled = !email || !firstName || !lastName;
+    const isDisabled =
+        !email || !firstName || !lastName || !password || !confirmPassword;
 
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
@@ -23,6 +26,9 @@ function SignUp() {
         } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(email)) {
             newErrors.email = 'Email is invalid';
         }
+        if (!password) newErrors.password = 'Password is required';
+        if (!confirmPassword || confirmPassword !== password)
+            newErrors.confirmPassword = 'Passwords do not match';
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -35,6 +41,7 @@ function SignUp() {
                     email,
                     firstName,
                     lastName,
+                    password,
                 },
             });
         }
@@ -134,6 +141,21 @@ function SignUp() {
                                     </p>
                                 )}
                             </div>
+
+                            <Input
+                                type="password"
+                                placeholder="Password"
+                                value={password}
+                                setValue={setPassword}
+                                error={errors.password}
+                            />
+                            <Input
+                                type="password"
+                                placeholder="Confirm Password"
+                                value={confirmPassword}
+                                setValue={setConfirmPassword}
+                                error={errors.confirmPassword}
+                            />
                         </div>
 
                         <button
@@ -171,33 +193,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
