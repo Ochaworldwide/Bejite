@@ -29,7 +29,7 @@ export default function PaymentPage() {
       <section className="bg-[#F5F5F5] border border-[#1A3E32] mt-1 max-w-[1000px] max-h-full m-auto px-4.5 py-3.5">
         <p className="font-fredoka text-[#333333] font-normal text-center text-2xl mt-12">Choose the perfect plan</p>
         <p className="text-center text-[12px]">Unlock Advanced Recruitment With Bejite's Flexible Plans</p>
-        <div className="flex flex-col items-center justify-around gap-5 mt-12 md:flex-row">
+        <div className="flex flex-col items-center justify-around gap-5 mt-12 lg:flex-row">
           <div className={styles.box}>
             <p className={styles.paragraph1}>Free Plan</p>
             <p className={styles.paragraph2}>First-Time Users: Enjoy 2 <br /> free searches to explore our platform</p>
