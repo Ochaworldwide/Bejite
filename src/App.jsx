@@ -42,6 +42,7 @@ import Chat from "./pages/employerDashboard/Chat.jsx";
 import Connection from "./pages/employerDashboard/Connection.jsx";
 import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
+import JobseekerChat from "./pages/jobseekerDashboard/jobseekerChat.jsx";
 
 
 function App() {
@@ -100,6 +101,7 @@ function App() {
         <Route path="/chats" element={<Chat/>} />
         <Route path="/connection" element={<Connection/>} />
         <Route path="/notification" element={<Notifications/>} />
+        <Route path="/jobseeker-chat" element={<JobseekerChat/>} />
       </Routes>
     </Router>
   );

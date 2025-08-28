@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import NewsFeedHeader from '../../components/NewsFeedHeader'
-import ChatsRight from '../../components/recruterchats/chats-right'
-import ChatsLeft from '../../components/recruterchats/chats-left'
-import ChatsMiddle from '../../components/recruterchats/chats-middle'
+import ChatsRight from '../../components/jobseekerchats/chats-right'
+import ChatsLeft from '../../components/jobseekerchats/chats-left'
+import ChatsMiddle from '../../components/jobseekerchats/chats-middle'
 
-function Chat() {
+function JobseekerChat() {
   const [selectedChat, setSelectedChat] = useState(null);
   const [currentView, setCurrentView] = useState('chatList'); // 'chatList', 'chatView', 'chatInfo'
 
@@ -98,4 +98,4 @@ function Chat() {
   );
 }
 
-export default Chat;
+export default JobseekerChat;

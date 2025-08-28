@@ -101,17 +101,28 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
             </div>
 
             {!agreed && (
+              <>
+              <h1 className='text-left'>status:</h1>
               <div className="flex gap-3 mt-4 justify-center">
+                 <button
+                  
+                  className=" bg-[#FFB547] text-[#16730F] px-8 py-2 rounded-md  transition"
+                >
+                  waiting
+                </button>
+
                 <button
                   onClick={handleAccept}
-                  className="bg-[#16730F] text-[#FFB547] px-8 py-2 rounded-md hover:bg-[#1a5c13] transition"
+                  className="border-[#16730F] border-2 text-[#16730F] px-8 py-2 rounded-md  transition"
                 >
-                  Accept
+                  Accepted
                 </button>
-                <button className="bg-[#EB5757] text-white px-8 py-2 rounded-md hover:bg-[#d63a3a] transition">
-                  Decline
+                <button className="border-[#EB5757] border-2 text-[#EB5757] px-8 py-2 rounded-md  transition">
+                  Expired
                 </button>
               </div>
+              </>
+              
             )}
           </div>
         </div>

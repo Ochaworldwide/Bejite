@@ -38,7 +38,7 @@ function ChatsRight({ selectedChat, onBack }) {
             </div>
             <div className="text-white text-center mt-3">
               <p className="text-lg font-semibold">{selectedChat.name}</p>
-              <p className="text-sm opacity-80">Employer</p>
+              <p className="text-sm opacity-80">Jobseeker</p>
             </div>
             <div className="w-36 mx-auto mt-4">
               <button
