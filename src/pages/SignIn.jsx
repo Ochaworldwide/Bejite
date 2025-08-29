@@ -1,37 +1,42 @@
+
+
+
 import { Eye, EyeOff } from 'lucide-react';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../services/axios';
 
 function SignIn() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-    const isDisabled = !email || !password;
-    const navigate = useNavigate();
+  const isDisabled = !email || !password;
+  const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        const payload = {
-            email,
-            password,
-        };
 
-        try {
-            const response = await axiosInstance.post('/auth/login', payload); // replace with your real endpoint
 
-            if (response.data.success) {
-                console.log('Sign-in successful:', response.data);
-                return response.data;
-            } else {
-                console.error('Sign-in error:', response.data.message);
-                return null;
-            }
-        } catch (error) {
-            console.error('Sign-in failed:', error);
-            return null;
-        }
-    };
+  const handleLogin = async () => {
+  const payload = {
+    email,
+    password,
+  };
+
+  try {
+    const response = await axiosInstance.post("/auth/login", payload); // replace with your real endpoint
+
+    if (response.data.success) {
+      console.log("Sign-in successful:", response.data);
+      return response.data;
+    } else {
+      console.error("Sign-in error:", response.data.message);
+      return null;
+    }
+  } catch (error) {
+    console.error("Sign-in failed:", error);
+    return null;
+  }
+  };
 
     return (
         <div className="bg-white min-h-screen flex flex-col">
@@ -78,39 +83,31 @@ function SignIn() {
                             Sign in to continue
                         </p>
 
-                        <div className="space-y-4">
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
-                            />
-                            <div className="relative">
-                                <input
-                                    type={showPassword ? 'text' : 'password'}
-                                    placeholder="Password"
-                                    value={password}
-                                    onChange={(e) =>
-                                        setPassword(e.target.value)
-                                    }
-                                    className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
-                                />
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        setShowPassword(!showPassword)
-                                    }
-                                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
-                                >
-                                    {showPassword ? (
-                                        <EyeOff size={20} />
-                                    ) : (
-                                        <Eye size={20} />
-                                    )}
-                                </button>
-                            </div>
-                        </div>
+            <div className="space-y-4">
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
+              />
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
+            </div>
 
                         <div className="text-right">
                             <p
@@ -121,23 +118,23 @@ function SignIn() {
                             </p>
                         </div>
 
-                        <button
-                            disabled={isDisabled}
-                            className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition ${
-                                isDisabled
-                                    ? 'bg-[#16730F40] cursor-not-allowed'
-                                    : 'bg-[#16730F]'
-                            }`}
-                            onClick={() => navigate('/post-page')}
-                            // onClick={()=> handleLogin()}
-                        >
-                            Login
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <button
+              disabled={isDisabled}
+              className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition ${
+                isDisabled
+                  ? 'bg-[#16730F40] cursor-not-allowed'
+                  : 'bg-[#16730F]'
+              }`}
+              onClick={()=> navigate('/post-page')}
+              // onClick={()=> handleLogin()}
+            >
+              Login
+            </button>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default SignIn;
