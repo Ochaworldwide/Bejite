@@ -42,8 +42,6 @@ import Chat from "./pages/employerDashboard/Chat.jsx";
 import Connection from "./pages/employerDashboard/Connection.jsx";
 import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
-import PaymentPage from "./pages/paymentMethod/PaymentPage";
-import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
 
 
 function App() {
@@ -60,7 +58,7 @@ function App() {
         <Route path="/employer-option" element={<EmployerOpt />} />
         <Route path="/jobconnection" element={<JobConnection />} />
         <Route path="/resume" element={<Resume />} />
-        <Route path="/save-progress" element={<SaveProgress />} />
+        <Route path="/save-progress" element={<SaveProgress />} />\
 
 
         <Route element={<ResumeLayout />}>
@@ -72,7 +70,7 @@ function App() {
           <Route path="/links" element={<Link />} />
         </Route>
 
-
+       
         <Route element={<IndividualVerificationLayout />}>
           <Route path="/individual/basic-details" element={<BasicDetails />} />
           <Route path="/individual/profile-setup" element={<ProfileSetup />} />
@@ -85,25 +83,23 @@ function App() {
 
         <Route element={<CoperateVerificationLayout />}>
           <Route
-            path="/coperate/basic-details" element={<CoperateBasicDetails />} /> <Route
-            path="/coperate/profile-setup" element={<CoperateProfileSetup />} /> <Route
-            path="/coperate/company-details" element={<CompanyDetails />} />
+            path="/coperate/basic-details" element={<CoperateBasicDetails />}/> <Route
+            path="/coperate/profile-setup" element={<CoperateProfileSetup />}/> <Route
+            path="/coperate/company-details"element={<CompanyDetails />}/>
           <Route path="/coperate/location" element={<CoperateLocation />} />
           <Route path="/coperate/verify" element={<CoperateVerify />} />
           <Route path="/coperate/upload" element={<CoperateUploadDoc />} />
-          <Route path="/coperate/inreview" element={<CoperateInReview />} />
+          <Route path="/coperate/inreview" element={<CoperateInReview />} /> 
         </Route>
         <Route path="/job-type" element={<JobType />} />
 
 
         <Route path="/post-page" element={<PostPage />} />
-        <Route path="/recruitment" element={<Recruitment />} />
+        <Route path="/recruitment" element={<Recruitment/>} />
         <Route path="/candidate-search-page" element={<CandidateSearchPage />} />
-        <Route path="/chats" element={<Chat />} />
-        <Route path="/connection" element={<Connection />} />
-        <Route path="/notification" element={<Notifications />} />
-        <Route path="/payment" element={<PaymentPage />} />
-        <Route path="payment-type" element={<PaymentType />} />
+        <Route path="/chats" element={<Chat/>} />
+        <Route path="/connection" element={<Connection/>} />
+        <Route path="/notification" element={<Notifications/>} />
       </Routes>
     </Router>
   );
