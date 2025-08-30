@@ -38,6 +38,44 @@ function SignIn() {
   }
   };
 
+
+  // const handleLogin = async (email, password) => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://bejite-backend.onrender.com/auth/login",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json", // tells backend you're sending JSON
+  //           Accept: "application/json", // tells backend you expect JSON back
+  //         },
+  //         body: JSON.stringify({
+  //           email: email,
+  //           password: password,
+  //         }),
+  //       }
+  //     );
+
+  //     if (!response.ok) {
+  //       throw new Error("Login failed: " + response.status);
+  //     }
+
+  //     const data = await response.json();
+  //     console.log("Login successful:", data);
+
+  //     // Example: if backend returns a token
+  //     if (data.token) {
+  //       localStorage.setItem("authToken", data.token); // store token for later requests
+  //     }
+
+  //     return data;
+  //   } catch (error) {
+  //     console.error("Error during login:", error);
+  //     throw error;
+  //   }
+  // };
+
+
   return (
     <div className="bg-white min-h-screen flex flex-col">
       {/* Header */}
@@ -121,8 +159,8 @@ function SignIn() {
                   ? 'bg-[#16730F40] cursor-not-allowed'
                   : 'bg-[#16730F]'
               }`}
-              onClick={()=> navigate('/post-page')}
-              // onClick={()=> handleLogin()}
+              // onClick={()=> navigate('/post-page')}
+              onClick={()=> handleLogin()}
             >
               Login
             </button>
