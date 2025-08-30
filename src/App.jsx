@@ -44,6 +44,7 @@ import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
 import PaymentPage from "./pages/paymentMethod/PaymentPage";
 import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
+import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
 
 
 function App() {
@@ -104,6 +105,7 @@ function App() {
         <Route path="/notification" element={<Notifications />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="payment-type" element={<PaymentType />} />
+        <Route path="add-card" element={<AddCard />} />
       </Routes>
     </Router>
   );
