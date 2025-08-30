@@ -1,4 +1,3 @@
-
 // import { Eye, EyeOff } from 'lucide-react';
 // import React, { useState } from 'react'
 // import { FaGoogle, FaLinkedin } from 'react-icons/fa';
@@ -110,55 +109,61 @@
 //         </div>
 //       </div>
 //     </div>
-//   );  
+//   );
 // }
 
 // export default SignUp;
-
-
-
 
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { FaGoogle, FaLinkedin } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Input from "../components/ui/Input";
+
 
 function SignUp() {
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-  const isDisabled = !email || !firstName || !lastName;
+    const isDisabled =
+        !email || !firstName || !lastName || !password || !confirmPassword;
 
-  const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
-  const validateForm = () => {
-    const newErrors = {};
+    const validateForm = () => {
+        const newErrors = {};
 
-    if (!firstName.trim()) newErrors.firstName = "First name is required";
-    if (!lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(email)) {
-      newErrors.email = "Email is invalid";
-    }
+        if (!firstName.trim()) newErrors.firstName = 'First name is required';
+        if (!lastName.trim()) newErrors.lastName = 'Last name is required';
+        if (!email.trim()) {
+            newErrors.email = 'Email is required';
+        } else if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(email)) {
+            newErrors.email = 'Email is invalid';
+        }
+        if (!password) newErrors.password = 'Password is required';
+        if (!confirmPassword || confirmPassword !== password)
+            newErrors.confirmPassword = 'Passwords do not match';
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
-  const handleContinue = () => {
-    if (validateForm()) {
-      navigate("/signup-role", {
-        state: {
-          email,
-          firstName,
-          lastName,
-        },
-      });
-    }
-  };
+    const handleContinue = () => {
+        if (validateForm()) {
+            navigate('/signup-role', {
+                state: {
+                    email,
+                    firstName,
+                    lastName,
+                    password,
+                },
+            });
+        }
+    };
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
@@ -180,57 +185,63 @@ function SignUp() {
 </div>
 
 
-      <div className="flex flex-col lg:flex-row flex-1 justify-between relative ">
-        <div className="w-full lg:w-[60%] relative hidden lg:block">
-          <img
-            src="/assets/images/Illustra.svg"
-            alt="Auth"
-            className="w-full h-screen"
-          />
-          <img
-            src="/assets/images/asubtext.svg"
-            alt="Auth Text"
-            className="absolute top-3/7 left-[46%] transform -translate-x-1/2 -translate-y-1/2"
-          />
-        </div>
+            <div className="flex flex-col lg:flex-row flex-1 justify-between relative ">
+                <div className="w-full lg:w-[60%] relative hidden lg:block">
+                    <img
+                        src="/assets/images/Illustra.svg"
+                        alt="Auth"
+                        className="w-full h-screen"
+                    />
+                    <img
+                        src="/assets/images/asubtext.svg"
+                        alt="Auth Text"
+                        className="absolute top-3/7 left-[46%] transform -translate-x-1/2 -translate-y-1/2"
+                    />
+                </div>
 
-        <div className="w-full lg:w-[40%] flex items-center justify-center lg:justify-start px-6 py-10">
-          <div className="w-full max-w-md space-y-2">
-            <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">
-              Sign Up
-            </h2>
-            <p className="text-center text-[#1A3E32] text-md">
-              Create your account in a few steps
-            </p>
+                <div className="w-full lg:w-[40%] flex items-center justify-center lg:justify-start px-6 py-10">
+                    <div className="w-full max-w-md space-y-2">
+                        <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">
+                            Sign Up
+                        </h2>
+                        <p className="text-center text-[#1A3E32] text-md">
+                            Create your account in a few steps
+                        </p>
 
-            <div className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  placeholder="First name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
-                />
-                {errors.firstName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.firstName}
-                  </p>
-                )}
-              </div>
+                        <div className="space-y-4">
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="First name"
+                                    value={firstName}
+                                    onChange={(e) =>
+                                        setFirstName(e.target.value)
+                                    }
+                                    className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
+                                />
+                                {errors.firstName && (
+                                    <p className="text-red-500 text-sm mt-1">
+                                        {errors.firstName}
+                                    </p>
+                                )}
+                            </div>
 
-              <div>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
-                />
-                {errors.lastName && (
-                  <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
-                )}
-              </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    placeholder="Last Name"
+                                    value={lastName}
+                                    onChange={(e) =>
+                                        setLastName(e.target.value)
+                                    }
+                                    className="w-full px-4 py-3 border border-[#1A3E32] rounded-xl outline-none"
+                                />
+                                {errors.lastName && (
+                                    <p className="text-red-500 text-sm mt-1">
+                                        {errors.lastName}
+                                    </p>
+                                )}
+                            </div>
 
               <div>
                 <input
@@ -248,16 +259,16 @@ function SignUp() {
 
             </div>
 
-            <button
-              className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition mb-10 ${
-                isDisabled
-                  ? "bg-[#16730F40] cursor-not-allowed"
-                  : "bg-[#16730F]"
-              }`}
-              onClick={handleContinue}
-            >
-              Continue
-            </button>
+                        <button
+                            className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition mb-10 ${
+                                isDisabled
+                                    ? 'bg-[#16730F40] cursor-not-allowed'
+                                    : 'bg-[#16730F]'
+                            }`}
+                            onClick={handleContinue}
+                        >
+                            Continue
+                        </button>
 
             <p className="text-[#1A3E32] text-center text-xl">...or signup with</p>
             <div className="flex justify-center gap-6 mt-4">
@@ -281,4 +292,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
