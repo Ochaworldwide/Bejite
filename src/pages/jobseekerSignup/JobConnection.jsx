@@ -125,8 +125,9 @@ const JobConnection = () => {
 
                 toast.success('Registration successful');
             } catch (error) {
-                const { error: errorText } = error.response.data;
-                toast.error(errorText);
+                console.log({ error });
+                const { message } = error.response.data;
+                toast.error(message);
                 return;
             } finally {
                 setShow(false);
