@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaArrowLeft, FaPhone, FaVideo, FaBars } from 'react-icons/fa';
+import image from '../../assets/Ellipse.png'; 
 
 function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
   const [agreed, setAgreed] = useState(false);
@@ -9,21 +10,11 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
     setAgreed(true);
   };
 
-  if (!selectedChat) {
-    return (
-      <div className="h-full flex items-center justify-center bg-white">
-        <div className="text-center text-gray-500">
-          <div className="text-6xl mb-4">💬</div>
-          <p className="text-lg">Select a conversation to start messaging</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
-    <main className="w-full h-full flex flex-col bg-white">
+   <main className="w-full h-full flex flex-col bg-gray-100">
       {/* Header */}
-      <div className="bg-[#ebebeb] flex items-center justify-between px-4 py-4 border-b">
+     <div className="bg-gray-200 flex items-center justify-between px-4 py-7 ">
         <div className="flex items-center gap-3">
           <button
             onClick={onShowChatList}
@@ -31,15 +22,11 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
           >
             <FaArrowLeft />
           </button>
-          <img
-            src={selectedChat.image}
-            alt={selectedChat.name}
-            className="w-10 h-10 rounded-full object-cover lg:hidden"
-          />
+        
           <div>
-            <h1 className="text-[#16730F] text-xl font-medium">{selectedChat.name}</h1>
+            <h1 className="text-[#16730F] text-xl font-medium">Osakwe Prisca</h1>
             <p className="text-sm text-gray-600">
-              {selectedChat.online ? 'Online' : 'Last seen recently'}
+            online
             </p>
           </div>
         </div>
@@ -62,48 +49,45 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
 
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-4">
-        {/* Interview Status */}
-        <div className="text-center mb-6">
-          {!agreed ? (
-            <>
-              <p className="text-xl font-semibold text-center text-[#16730F] mb-2">You've been invited for an interview!</p>
-              <p className="text-sm text-center text-[#16730F] px-4">Okpata favour has invited you for an interview as a Graphics Designer on July 20th, 9:00am. Please respond within 72 hours. If no response, this invite will be automatically declined.</p>
-            </>
-          ) : (
-            <>
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">✓</span>
-              </div>
-              <p className="text-xl font-semibold text-center text-[#16730F] mb-2">You have accepted the interview invite.</p>
-              <p className="text-sm text-center text-[#16730F]">You can now start a conversation with Okpata Favour.</p>
-            </>
-          )}
-        </div>
-
+       
         {/* Message Bubble */}
         <div className="flex justify-center mb-6">
-          <div className="max-w-md">
-            <div className="flex items-start space-x-3">
-              <img
-                src={selectedChat.image}
-                alt="profile"
-                className="w-10 h-10 rounded-full flex-shrink-0"
-              />
-              <div className="bg-[#f1f1f1] p-3 rounded-lg text-sm">
-                <p className="text-gray-800">
-                  Hi Idris Joseban, <br />
-                  You've been invited for an interview as a Graphics Designer on{" "}
-                  <strong>July 20th, 9:00am</strong>. Please respond within 72 hours.
-                  If no response, this invite will be automatically declined.
-                </p>
-                <p className="text-xs text-gray-500 mt-2">09:45 AM</p>
-              </div>
+          <div className="max-w-[600px]">
+             <div className="flex flex-col items-start"> 
+             <div className="flex items-center gap-3">
+                       <img
+                         src={image}
+                         alt="profile"
+                         className="w-10 h-10 rounded-full flex-shrink-0"
+                       />
+                     </div>
+           
+                     {/* Message Bubble */}
+                     <div className="bg-gray-200 p-6 mt-3 rounded-2xl rounded-tl-none text-sm">
+                       <p className="text-[#1A3E32] font-medium">
+                         Hi Prisca Osakwe,<br />
+                         Great news! You've been shortlisted for the Graphics Designer position.
+                         We’d love to meet you during an interview on July 20th, 9:00am via{" "}
+                         https://meet.google.com/yqt-vbte-amu. Kindly confirm your availability.
+                         We're excited to learn more about you!
+                       </p>
+                     </div>
             </div>
 
-            {!agreed && (
-              <>
-              <h1 className='text-left'>status:</h1>
-              <div className="flex gap-3 mt-4 justify-center">
+           <div className="mt-4">
+              <h1 className='text-sm text-gray-700 font-semibold'>JOB ROLE</h1>
+              <p className='text-left text-[#16730F] text-sm font-semibold'>GRAPHIC DESIGNER</p>
+
+
+               <h1 className='text-sm text-gray-700 font-semibold mt-5'>DATE/TIME SENT</h1>
+              <p className='text-left text-[#16730F] text-sm font-semibold'>15th July,  1:50pm UTC</p>
+           </div>
+           
+            <div className='mt-3'>
+
+            
+             <h1 className='text-left'>status:</h1>
+              <div className="flex gap-3 mt-4 ">
                  <button
                   
                   className=" bg-[#FFB547] text-[#16730F] px-8 py-2 rounded-md  transition"
@@ -121,57 +105,57 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
                   Expired
                 </button>
               </div>
-              </>
+              </div>
               
-            )}
+           
           </div>
         </div>
       </div>
 
-      {/* Message Input */}
-      <div className="p-4 bg-white border-t">
-        <div className="flex flex-col gap-2 border border-[#16730F] rounded-2xl px-4 py-3 bg-gray-100 shadow-sm">
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Type a message"
-            className="flex-1 outline-none text-sm bg-transparent placeholder-gray-400"
-          />
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <button
-                type="button"
-                className="text-gray-500 hover:text-green-600 text-lg"
-                aria-label="Add emoji"
-              >
-                😊
-              </button>
-              <button
-                type="button"
-                className="text-gray-500 hover:text-green-600 text-lg"
-                aria-label="Attach file"
-              >
-                ＋
-              </button>
-            </div>
-            <div className="flex items-center space-x-2">
-              <button
-                type="button"
-                className="text-gray-500 hover:text-green-600 text-lg"
-                aria-label="Record voice"
-              >
-                🎤
-              </button>
-              <button
-                type="button"
-                className="bg-gray-400 hover:bg-green-600 text-white rounded-full p-2 transition"
-                aria-label="Send message"
-              >
-                ➤
-              </button>
-            </div>
-          </div>
+       {/* Message Input */}
+  <div className="p-4 bg-gray-100 ">
+    <div className="flex flex-col gap-2 border border-gray-300 rounded-2xl px-4 py-3 bg-gray-100 shadow-sm">
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Type a message"
+        className="flex-1 outline-none text-sm bg-transparent placeholder-gray-400"
+      />
+      <div className="flex justify-between items-center">
+        <div className="flex items-center space-x-2">
+          <button
+            type="button"
+            className="text-gray-500 hover:text-green-600 text-lg"
+            aria-label="Add emoji"
+          >
+            😊
+          </button>
+          <button
+            type="button"
+            className="text-gray-500 hover:text-green-600 text-lg"
+            aria-label="Attach file"
+          >
+            ＋
+          </button>
+        </div>
+        <div className="flex items-center space-x-2">
+          <button
+            type="button"
+            className="text-gray-500 hover:text-green-600 text-lg"
+            aria-label="Record voice"
+          >
+            🎤
+          </button>
+          <button
+            type="button"
+            className="bg-gray-700 hover:bg-green-600 text-white rounded-full p-2 transition"
+            aria-label="Send message"
+          >
+            ➤
+          </button>
+        </div>
+      </div>
         </div>
       </div>
     </main>

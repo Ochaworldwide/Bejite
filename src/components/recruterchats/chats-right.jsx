@@ -1,14 +1,10 @@
 import React from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
+import image from '../../assets/Ellipse.png'; 
+
 
 function ChatsRight({ selectedChat, onBack }) {
-  if (!selectedChat) {
-    return (
-      <div className="h-full bg-[#F5F5F5] flex items-center justify-center">
-        <p className="text-gray-500">Select a conversation to view details</p>
-      </div>
-    );
-  }
+  
 
   return (
     <div className="bg-[#F5F5F5] h-full p-2">
@@ -31,13 +27,13 @@ function ChatsRight({ selectedChat, onBack }) {
             <div className="relative -mt-10 rounded-full border-[5px] border-[#16730F]">
               <img
                 className="w-20 h-20 rounded-full object-cover"
-                src={selectedChat.image}
-                alt={`${selectedChat.name} avatar`}
+                src={image}
+               
                 loading="lazy"
               />
             </div>
             <div className="text-white text-center mt-3">
-              <p className="text-lg font-semibold">{selectedChat.name}</p>
+              <h1 className="text-lg font-semibold">Okpata favour</h1>
               <p className="text-sm opacity-80">Employer</p>
             </div>
             <div className="w-36 mx-auto mt-4">
