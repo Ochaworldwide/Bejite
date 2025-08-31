@@ -46,6 +46,7 @@ import PaymentPage from "./pages/paymentMethod/PaymentPage";
 import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
 import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
 import PaymentProcessing from "./pages/paymentMethod/PaymentProcessing.jsx";
+import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
 
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
         <Route path="payment-type" element={<PaymentType />} />
         <Route path="add-card" element={<AddCard />} />
         <Route path="payment-processing" element={<PaymentProcessing />} />
+        <Route path="payment-success" element={<PaymentSuccess />} />
       </Routes>
     </Router>
   );
