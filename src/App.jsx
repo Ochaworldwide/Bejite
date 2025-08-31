@@ -47,6 +47,9 @@ import Connection from "./pages/employerDashboard/Connection.jsx";
 import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import PaymentPage from "./pages/paymentMethod/PaymentPage";
+import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
+
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
 
@@ -117,6 +120,8 @@ function App() {
           <Route path="/chats" element={<Chat />} />
           <Route path="/connection" element={<Connection />} />
           <Route path="/notification" element={<Notifications />} />
+          <Route path="/payment" element={<PaymentPage/>} />
+        <Route path="payment-type" element={<PaymentType />} />
         </Routes>
       </Router>
     </GoogleOAuthProvider>
