@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const spanStyle = 'bg-white rounded-2xl px-2'
 const imgStyle = 'w-7'
-const fieldsetStyle = 'p-4 border border-black rounded-[10px] max-h-[60px]'
-const legendStyle = 'font-semibold text-[#333333] text-[12px] p-3'
+const fieldsetStyle = 'p-4 border border-black rounded-[10px] max-h-[60px] flex flex-col justify-center'
+const legendStyle = 'font-semibold text-[12px] p-3'
+const inputStyle = 'w-full focus:outline-none mb-3'
 
 export default function AddCard() {
   const navigate = useNavigate();
@@ -16,18 +17,18 @@ export default function AddCard() {
   function handleButtonClick() {
     navigate('/payment-processing');
   }
-  
+
   return (
     <div className="bg-white">
       <PaymentPageHeader />
 
-      <section className="bg-[#F5F5F5] border border-[#1A3E32] mt-1 max-w-[1000px] max-h-full m-auto px-4.5 py-3.5">
-        <p className="capitalize text-[#333333] font-normal text-2xl text-center mt-6">Add your card to complete payment</p>
-        <p className="text-[#333333] font-normal text-[12px] text-center mt-2.5">Securely enter your card details to activate your selected plan and gain access to Bejite's advanced recruitment tools</p>
+      <section className="bg-[#F5F5F5] border border-[#1A3E32] mt-1 max-w-[1000px] max-h-full m-auto px-4.5 py-3.5 text-[#333333]">
+        <p className="capitalize  font-normal text-2xl text-center mt-6">Add your card to complete payment</p>
+        <p className="font-normal text-[12px] text-center mt-2.5">Securely enter your card details to activate your selected plan and gain access to Bejite's advanced recruitment tools</p>
         <div className="max-w-[640px] max-h-[461px] rounded-[10px] bg-neutral-300 border-[#16730F] border-1 m-auto mt-8 px-9 py-4 place-items-center">
           <form className="mt-6">
             <div className="flex justify-between">
-              <p className="before:content-[''] before:inline-block before:w-3 before:h-3 before:bg-[#16730F] before:border-2 before:border-black before:rounded-full before:mr-2 text-[#333333] font-semibold ">Credit or debit card</p>
+              <p className="before:content-[''] before:inline-block before:w-3 before:h-3 before:bg-[#16730F] before:border-2 before:border-black before:rounded-full before:mr-2 font-semibold ">Credit or debit card</p>
               <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-5">
                 <span className={spanStyle}>
                   <img
@@ -67,20 +68,20 @@ export default function AddCard() {
             </div>
             <div className="mt-10">
               <fieldset className={fieldsetStyle}>
-                <legend className={legendStyle}>Cardholder name</legend>
-                <input type="text" className="w-full focus:outline-none" />
+                <legend className={legendStyle}>Cardholder name
+                </legend>
+                <input type="text" className={inputStyle} />
               </fieldset>
 
-              <p className="italic font-medium text-[#333333] text-[10px] mt-3">Please input the exact name printed on your card</p>
+              <p className="italic font-medium text-[10px] mt-3">Please input the exact name printed on your card</p>
 
               <fieldset className={fieldsetStyle}>
                 <legend className={legendStyle}>Card number</legend>
-                <div className="relative">
-                  <input type="text" className="w-full focus:outline-none" />
-                  <div className="absolute top-0 bottom-0 -translate-y-1/2">
-                    <FaCreditCard
-                      className="text-[#16730F]" />
-                  </div>
+                <div className="relative flex gap-2">
+                  <FaCreditCard
+                      className="text-[#16730F] mt-1" />
+                  <input type="text" className={inputStyle} />
+                  
                 </div>
 
               </fieldset>
@@ -89,12 +90,12 @@ export default function AddCard() {
 
                 <fieldset className={fieldsetStyle}>
                   <legend className={legendStyle}>Expiry Date</legend>
-                  <input type="text" className="w-full focus:outline-none" />
+                  <input type="tel" maxLength="5" placeholder="MM/YY" className={inputStyle} />
                 </fieldset>
 
                 <fieldset className={fieldsetStyle}>
                   <legend className={legendStyle}>CVC</legend>
-                  <input type="text" className="w-full focus:outline-none" />
+                  <input type="tel" maxLength="3" pattern="\d{3}" className={inputStyle} />
                 </fieldset>
 
                 <img src="/assets/images/paymenticons/cvc.png" alt="CVC section of credit card icon" className="max-h-20 min-h-10 min-w-15 mt-7" />
@@ -105,7 +106,7 @@ export default function AddCard() {
             <label className="text-[#1A3E32] font-normal">Save card details</label>
           </form>
         </div>
-        <div className="mt-14 text-[#333333] ">
+        <div className="mt-14">
           <p className="text-[#16730F] font-semibold ">Payment Authorization & Agreement</p>
           <p className="font-semibold text-[10px] mt-6">By submitting your card information, you agree to be charged the exact amount shown for your selected plan. <br /> All payments are securely encrypted. This is a one-time charge no recurring fees unless you choose to fund your account again.
           </p>
@@ -119,7 +120,7 @@ export default function AddCard() {
             <li>You can upgrade your plan or fund again later through your Payment Account.</li>
           </ul>
 
-          <input type="checkbox" className="w-3 h-3 mt-6 mr-1"/>
+          <input type="checkbox" className="w-3 h-3 mt-6 mr-1" />
           <label className="font-semibold text-[8px]"> I agree to the terms of payment and authorize this transaction.</label>
 
         </div>
