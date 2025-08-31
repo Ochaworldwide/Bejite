@@ -1,6 +1,7 @@
 import React from "react";
 import PaymentPageHeader from "../../components/PaymentPageHeader";
 import { FaCreditCard } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +11,12 @@ const fieldsetStyle = 'p-4 border border-black rounded-[10px] max-h-[60px]'
 const legendStyle = 'font-semibold text-[#333333] text-[12px] p-3'
 
 export default function AddCard() {
+  const navigate = useNavigate();
+
+  function handleButtonClick() {
+    navigate('/payment-processing');
+  }
+  
   return (
     <div className="bg-white">
       <PaymentPageHeader />
@@ -116,7 +123,7 @@ export default function AddCard() {
           <label className="font-semibold text-[8px]"> I agree to the terms of payment and authorize this transaction.</label>
 
         </div>
-        <div className="bg-[#16730F] text-white font-semibold text-[15px] m-auto p-5 max-w-lg text-center mt-10">Pay ₦15,213.10</div>
+        <div className="bg-[#16730F] text-white font-semibold text-[15px] m-auto p-5 max-w-lg text-center mt-10 cursor-pointer" onClick={handleButtonClick}>Pay ₦15,213.10</div>
       </section>
     </div>
   )
