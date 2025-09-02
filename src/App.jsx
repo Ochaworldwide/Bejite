@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Links,
 } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import ForgetPassword from "./pages/ForgetPassword";
@@ -46,69 +45,91 @@ import Chat from "./pages/employerDashboard/Chat.jsx";
 import Connection from "./pages/employerDashboard/Connection.jsx";
 import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
-import JobseekerChat from "./pages/jobseekerDashboard/jobseekerChat.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import PaymentPage from "./pages/paymentMethod/PaymentPage";
+import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
+import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
+import PaymentProcessing from "./pages/paymentMethod/PaymentProcessing.jsx";
+import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
+
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/forgot-password" element={<ForgetPassword />} />
-        <Route path="/email-check" element={<EmailCheck />} />
-        <Route path="/signup-role" element={<SignUpRole />} />
-        <Route path="/confirmpassword" element={<ConfirmPassword />} />
-        <Route path="/jobseeker-option" element={<JobSeekerOpt />} />
-        <Route path="/employer-option" element={<EmployerOpt />} />
-        <Route path="/jobconnection" element={<JobConnection />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/save-progress" element={<SaveProgress />} />\
-
-
-        <Route element={<ResumeLayout />}>
-          <Route path="/bio" element={<Bio />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/work-history" element={<WorkHistory />} />
-          <Route path="/certificate" element={<Certificate />} />
-          <Route path="/links" element={<Link />} />
-        </Route>
-
-       
-        <Route element={<IndividualVerificationLayout />}>
-          <Route path="/individual/basic-details" element={<BasicDetails />} />
-          <Route path="/individual/profile-setup" element={<ProfileSetup />} />
-          <Route path="/individual/location" element={<Location />} />
-          <Route path="/individual/verify" element={<Verify />} />
-          <Route path="/individual/selectid" element={<SelectId />} />
-          <Route path="/individual/upload" element={<UploadDoc />} />
-          <Route path="/individual/inreview" element={<InReview />} />
-        </Route>
-
-        <Route element={<CoperateVerificationLayout />}>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/forgot-password" element={<ForgetPassword />} />
+          <Route path="/email-check" element={<EmailCheck />} />
+          <Route path="/signup-role" element={<SignUpRole />} />
+          <Route path="/confirmpassword" element={<ConfirmPassword />} />
+          <Route path="/jobseeker-option" element={<JobSeekerOpt />} />
+          <Route path="/employer-option" element={<EmployerOpt />} />
+          <Route path="/jobconnection" element={<JobConnection />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/save-progress" element={<SaveProgress />} />
+          <Route element={<ResumeLayout />}>
+            <Route path="/bio" element={<Bio />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/work-history" element={<WorkHistory />} />
+            <Route path="/certificate" element={<Certificate />} />
+            <Route path="/links" element={<Link />} />
+          </Route>
+          <Route element={<IndividualVerificationLayout />}>
+            <Route
+              path="/individual/basic-details"
+              element={<BasicDetails />}
+            />
+            <Route
+              path="/individual/profile-setup"
+              element={<ProfileSetup />}
+            />
+            <Route path="/individual/location" element={<Location />} />
+            <Route path="/individual/verify" element={<Verify />} />
+            <Route path="/individual/selectid" element={<SelectId />} />
+            <Route path="/individual/upload" element={<UploadDoc />} />
+            <Route path="/individual/inreview" element={<InReview />} />
+          </Route>
+          <Route element={<CoperateVerificationLayout />}>
+            <Route
+              path="/coperate/basic-details"
+              element={<CoperateBasicDetails />}
+            />{" "}
+            <Route
+              path="/coperate/profile-setup"
+              element={<CoperateProfileSetup />}
+            />{" "}
+            <Route
+              path="/coperate/company-details"
+              element={<CompanyDetails />}
+            />
+            <Route path="/coperate/location" element={<CoperateLocation />} />
+            <Route path="/coperate/verify" element={<CoperateVerify />} />
+            <Route path="/coperate/upload" element={<CoperateUploadDoc />} />
+            <Route path="/coperate/inreview" element={<CoperateInReview />} />
+          </Route>
+          <Route path="/job-type" element={<JobType />} />
+          <Route path="/post-page" element={<PostPage />} />
+          <Route path="/recruitment" element={<Recruitment />} />
           <Route
-            path="/coperate/basic-details" element={<CoperateBasicDetails />}/> <Route
-            path="/coperate/profile-setup" element={<CoperateProfileSetup />}/> <Route
-            path="/coperate/company-details"element={<CompanyDetails />}/>
-          <Route path="/coperate/location" element={<CoperateLocation />} />
-          <Route path="/coperate/verify" element={<CoperateVerify />} />
-          <Route path="/coperate/upload" element={<CoperateUploadDoc />} />
-          <Route path="/coperate/inreview" element={<CoperateInReview />} /> 
-        </Route>
-        <Route path="/job-type" element={<JobType />} />
-
-
-        <Route path="/post-page" element={<PostPage />} />
-        <Route path="/recruitment" element={<Recruitment/>} />
-        <Route path="/candidate-search-page" element={<CandidateSearchPage />} />
-        <Route path="/chats" element={<Chat/>} />
-        <Route path="/connection" element={<Connection/>} />
-        <Route path="/notification" element={<Notifications/>} />
-        <Route path="/jobseeker-chat" element={<JobseekerChat/>} />
+            path="/candidate-search-page"
+            element={<CandidateSearchPage />}
+          />
+          <Route path="/chats" element={<Chat />} />
+          <Route path="/connection" element={<Connection />} />
+          <Route path="/notification" element={<Notifications />} />
+          <Route path="/payment" element={<PaymentPage/>} />
+          <Route path="payment-type" element={<PaymentType />} />
+          <Route path="add-card" element={<AddCard />} />
+          <Route path="payment-processing" element={<PaymentProcessing />} />
+          <Route path="payment-success" element={<PaymentSuccess />} />
       </Routes>
     </Router>
+      </GoogleOAuthProvider>  
   );
 }
 
