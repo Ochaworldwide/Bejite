@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Links,
 } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import ForgetPassword from "./pages/ForgetPassword";
@@ -58,7 +57,7 @@ const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="">
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <Router>
         <Routes>
           <Route path="/" element={<SignIn />} />
@@ -71,7 +70,7 @@ function App() {
           <Route path="/employer-option" element={<EmployerOpt />} />
           <Route path="/jobconnection" element={<JobConnection />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/save-progress" element={<SaveProgress />} />\
+          <Route path="/save-progress" element={<SaveProgress />} />
           <Route element={<ResumeLayout />}>
             <Route path="/bio" element={<Bio />} />
             <Route path="/education" element={<Education />} />
@@ -124,9 +123,13 @@ function App() {
           <Route path="/connection" element={<Connection />} />
           <Route path="/notification" element={<Notifications />} />
           <Route path="/payment" element={<PaymentPage/>} />
-        <Route path="payment-type" element={<PaymentType />} />
+          <Route path="payment-type" element={<PaymentType />} />
+          <Route path="add-card" element={<AddCard />} />
+          <Route path="payment-processing" element={<PaymentProcessing />} />
+          <Route path="payment-success" element={<PaymentSuccess />} />
       </Routes>
     </Router>
+      </GoogleOAuthProvider>  
   );
 }
 

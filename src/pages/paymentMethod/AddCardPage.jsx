@@ -95,7 +95,7 @@ export default function AddCard() {
 
                 <fieldset className={fieldsetStyle}>
                   <legend className={legendStyle}>CVC</legend>
-                  <input type="number" maxLength="3" pattern="\d{3}" className={inputStyle} />
+                  <input type="tel" maxLength="3" pattern="\d{3}" className={inputStyle} />
                 </fieldset>
 
                 <img src="/assets/images/paymenticons/cvc.png" alt="CVC section of credit card icon" className="max-h-20 min-h-10 min-w-15 mt-7" />
