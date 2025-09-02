@@ -49,6 +49,9 @@ import Notifications from "./pages/employerDashboard/Notifications.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import PaymentPage from "./pages/paymentMethod/PaymentPage";
 import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
+import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
+import PaymentProcessing from "./pages/paymentMethod/PaymentProcessing.jsx";
+import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
 
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
@@ -122,9 +125,8 @@ function App() {
           <Route path="/notification" element={<Notifications />} />
           <Route path="/payment" element={<PaymentPage/>} />
         <Route path="payment-type" element={<PaymentType />} />
-        </Routes>
-      </Router>
-    </GoogleOAuthProvider>
+      </Routes>
+    </Router>
   );
 }
 
