@@ -23,7 +23,7 @@ import NewsFeedHeader from '../../components/NewsFeedHeader';
 const Chat = () => {
   const [activeChat, setActiveChat] = useState(null);
   const [newMessage, setNewMessage] = useState('');
-  const [view, setView] = useState('chatList'); // mobile: 'chatList' | 'chatWindow'
+  const [view, setView] = useState('chatList');
   const [activeUsers, setActiveUsers] = useState([]);
 
   const users = React.useMemo(() => [
