@@ -51,6 +51,7 @@ import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
 import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
 import PaymentProcessing from "./pages/paymentMethod/PaymentProcessing.jsx";
 import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
+import Invite from "./components/Invite.jsx";
 
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
@@ -119,6 +120,7 @@ function App() {
             path="/candidate-search-page"
             element={<CandidateSearchPage />}
           />
+          <Route path="/invite" element={<Invite />} />
           <Route path="/chats" element={<Chat />} />
           <Route path="/connection" element={<Connection />} />
           <Route path="/notification" element={<Notifications />} />
