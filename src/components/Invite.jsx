@@ -14,7 +14,7 @@ import {
 import user1Avatar from '/assets/images/user1.png';
 import user2Avatar from '/assets/images/user2.png';
 
-const Chat = () => {
+const Invite = () => {
   const [activeChat, setActiveChat] = useState(2); // Start with Osakwe Prisca's invitation
   const [newMessage, setNewMessage] = useState('');
   const [view, setView] = useState('chatWindow');
@@ -550,4 +550,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Invite;
