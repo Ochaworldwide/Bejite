@@ -18,7 +18,7 @@ import user4Avatar from '/assets/images/user4.png';
 import user5Avatar from '/assets/images/user5.png';
 import user6Avatar from '/assets/images/user6.png';
 import placeholderImage from '/assets/images/image.png';
-import NewsFeedHeader from '../../components/NewsFeedHeader';
+import NewsFeedHeader from "../../components/NewsFeedHeader";
 
 const Chat = () => {
   const [activeChat, setActiveChat] = useState(null);
