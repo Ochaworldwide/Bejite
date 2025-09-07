@@ -15,12 +15,12 @@ import user1Avatar from '/assets/images/user1.png';
 import user2Avatar from '/assets/images/user2.png';
 
 const Invite = () => {
-  const [activeChat, setActiveChat] = useState(2); // Start with Osakwe Prisca's invitation
+  const [activeChat, setActiveChat] = useState(2); 
   const [newMessage, setNewMessage] = useState('');
   const [view, setView] = useState('chatWindow');
   const [activeUsers, setActiveUsers] = useState([]);
   const [invitationStatus, setInvitationStatus] = useState({
-    2: 'waiting', // Osakwe Prisca's invitation
+    2: 'waiting', 
   });
 
   const users = React.useMemo(() => [
