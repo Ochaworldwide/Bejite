@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axiosInstance from '../services/axios';
+import axios from 'axios';
 
 const useSignup = () => {
     const [loading, setLoading] = useState(false);
@@ -16,7 +17,16 @@ const useSignup = () => {
             const result = response.data;
             setData(result);
         } catch (err) {
-            setError(err);
+            if (axios.isAxiosError(err)) {
+                setError(err.response.data.error);
+                return;
+            } else if (err instanceof Error) {
+                setError(err.message);
+                return;
+            } else {
+                setError(String(err));
+                return;
+            }
         } finally {
             setLoading(false);
         }

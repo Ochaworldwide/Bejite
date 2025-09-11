@@ -5,7 +5,7 @@ const Loader = ({ show }) => {
     return (
         <>
             {show && (
-                <div className="w-screen h-screen fixed left-0 top-0 bg-white/70 flex justify-center items-center z-10 backdrop-blur-sm">
+                <div className="w-screen h-screen fixed left-0 top-0 bg-white/70 flex justify-center items-center z-30 backdrop-blur-sm">
                     <div
                         className="relative z-20 flex justify-center items-center"
                         style={{ width: 100, height: 100 }}

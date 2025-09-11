@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../components/ui/Input';
 import { toast } from 'react-toastify';
 import useSignup from '../hooks/useSignup';
+import Loader from '../components/ui/Loader';
 
 function SignUp() {
     const [email, setEmail] = useState('');
@@ -40,7 +41,7 @@ function SignUp() {
 
     const handleContinue = async () => {
         if (validateForm()) {
-            signup('/auth/signup', {
+            await signup('/auth/signup', {
                 firstName,
                 lastName,
                 email,
@@ -53,21 +54,36 @@ function SignUp() {
 
     useEffect(() => {
         if (data) {
-            toast('Registration successful!', { type: 'success' });
+            const { message, success, user } = data;
+            if (success) {
+                toast(`Registration successful! ${message}`, {
+                    type: 'success',
+                });
+
+                // add user data to the local storage
+                const userData = {
+                    id: user.id,
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    isEmailVerified: user.isEmailVerified,
+                    isActive: user.isActive,
+                };
+
+                localStorage.setItem('user', JSON.stringify(userData));
+
+                navigate('/signup-role');
+            }
         }
 
         if (error) {
             toast(error, { type: 'error' });
         }
-    }, [data, error]);
+    }, [data, error, navigate]);
 
     return (
         <div className="bg-white min-h-screen flex flex-col">
-            {loading && (
-                <div className="fixed top-0 left-0 text-2xl font-bold">
-                    Loading
-                </div>
-            )}
+            <Loader show={loading} />
             <div className="w-full lg:w-[70%] px-4 py-6 mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 lg:absolute lg:right-4 lg:left-4 lg:top-1/12 lg:transform lg:-translate-y-1/2 lg:z-10">
                 <img
                     src="/assets/images/logo.png"
@@ -193,11 +209,17 @@ function SignUp() {
                         </p>
                         <div className="flex justify-center gap-6 mt-4">
                             <FaLinkedin className="text-blue-600 text-3xl cursor-pointer" />
-                            <img
-                                src="/assets/images/google.png"
-                                alt="google logo"
-                                className="w-8 h-8 cursor-pointer"
-                            />
+                            <a
+                                href="https://bejite-backend.onrender.com/auth/google"
+                                target="_self"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="/assets/images/google.png"
+                                    alt="google logo"
+                                    className="w-8 h-8 cursor-pointer"
+                                />
+                            </a>
                             <img
                                 src="/assets/images/x.svg"
                                 alt="Twitter"
