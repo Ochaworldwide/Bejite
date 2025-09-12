@@ -3,7 +3,6 @@ import SignIn from './pages/SignIn';
 import ForgetPassword from './pages/ForgetPassword';
 import EmailCheck from './pages/EmailCheck';
 import SignUp from './pages/SignUp';
-import VerifyEmail from './pages/VerifyEmail';
 import ConfirmPassword from './pages/ConfirmPassword';
 import SignUpRole from './pages/SignUpRole';
 import JobConnection from './pages/jobseekerSignup/JobConnection.jsx';
@@ -48,6 +47,9 @@ import AddCard from './pages/paymentMethod/AddCardPage.jsx';
 import PaymentProcessing from './pages/paymentMethod/PaymentProcessing.jsx';
 import PaymentSuccess from './pages/paymentMethod/PaymentSuccessPage.jsx';
 import { ToastContainer } from 'react-toastify';
+import AuthSuccess from './pages/auth/AuthSuccess.jsx';
+import VerifyEmail from './pages/auth/VerifyEmail.jsx';
+import EmailSent from './pages/auth/EmailSent.jsx';
 
 const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
 
@@ -163,6 +165,11 @@ function App() {
                         path="payment-success"
                         element={<PaymentSuccess />}
                     />
+
+                    {/* auth */}
+                    <Route path="auth/success" element={<AuthSuccess />} />
+                    <Route path="auth/verify-email" element={<VerifyEmail />} />
+                    <Route path="auth/email-sent" element={<EmailSent />} />
                 </Routes>
             </Router>
         </GoogleOAuthProvider>

@@ -54,9 +54,9 @@ function SignUp() {
 
     useEffect(() => {
         if (data) {
-            const { message, success, user } = data;
+            const { success, user } = data;
             if (success) {
-                toast(`Registration successful! ${message}`, {
+                toast(`Registration successful!`, {
                     type: 'success',
                 });
 
@@ -72,7 +72,8 @@ function SignUp() {
 
                 localStorage.setItem('user', JSON.stringify(userData));
 
-                navigate('/signup-role');
+                // navigate('/signup-role');
+                navigate(`/auth/email-sent?email=${user.email}`);
             }
         }
 
