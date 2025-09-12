@@ -1,8 +1,15 @@
 import React from "react";
 import { LuSend } from "react-icons/lu";
 import { RxCross1 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 export default function InterviewInvite() {
+  const navigate = useNavigate();
+
+  function handleClick(path) {
+    navigate(path);
+  }
+
   return (
     <section className="bg-[#D9D9D9] h-full p-2.5">
       <p className="text-[#16730F] font-medium text-2xl text-center mt-10 text-[20px]">Send Interview Invite</p>
@@ -53,18 +60,19 @@ export default function InterviewInvite() {
       </p>
 
       <div className="mt-3 border border-black bg-neutral-200 rounded-xl w-[300px] sm:w-[600px] md:w-[750px] h-[200px] m-auto p-3 text-[#556B1F] text-center">
-        
+
         <p className="mt-2 mb-2">Enter your custom message</p>
-        
+
         <input type="text" placeholder="Write your own message" className="bg-[#556B1F] w-[270px] sm:w-[550px] md:w-[700px] h-[120px] rounded-2xl text-white p-5 font-medium outline-none" />
       </div>
-      
+
       <div className="flex items-center justify-center gap-5 mt-9">
-        <div className="bg-[#1A3E32] flex w-2xs text-[#FFB547] items-center justify-center gap-2 p-3 rounded-2xl">
+        <div className="bg-[#1A3E32] flex w-2xs text-[#FFB547] items-center justify-center gap-2 p-3 rounded-2xl cursor-pointer"
+        onClick={() => handleClick('/employee-sent-invite')}>
           <LuSend />
           Send
         </div>
-        <div className="border-[#EB5757] border-2 flex w-2xs items-center justify-center text-[#EB5757] gap-2 rounded-2xl p-3">
+        <div className="border-[#EB5757] border-2 flex w-2xs items-center justify-center text-[#EB5757] gap-2 rounded-2xl p-3 cursor-pointer">
           <RxCross1 />
           Cancel
         </div>

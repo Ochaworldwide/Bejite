@@ -5,8 +5,9 @@ import { CiBellOn } from "react-icons/ci";
 import { LuUserRoundSearch } from "react-icons/lu";
 import { GrSync } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import { PiBriefcaseBold } from "react-icons/pi";
 
-export default function ChatPageHeader() {
+export default function ChatPageHeader({ config}) {
   const navigate = useNavigate();
 
   function handleClick(path) {
@@ -32,24 +33,43 @@ export default function ChatPageHeader() {
                 onClick={() => handleClick('/post-page')}
               />
             </span>
-            <div className="relative flex items-center mr-7 sm:mr-9">
+            {config.hasInvites && <div className="relative flex items-center mr-7 sm:mr-11">
+                          <span className="items-center p-1 border-[#1A3E32] border-2 rounded-full h-7 w-7 sm:h-9 sm:w-9 z-50 bg-white cursor-pointer">
+                            <PiBriefcaseBold
+                              className="text-[#1A3E32] w-4 h-4 sm:w-6 sm:h-6 m-auto font-bold"
+                              onClick={() => handleClick('/candidate-search-page')}
+                            />
+                          </span>
+                          <span className=" w-9 h-5 sm:w-14 bg-[#1A3E32] rounded-full absolute left-7 text-white font-medium text-[8px] text-center p-1 px-2 -z-50">Invites</span>
+                        </div>}
+            {config.hasChats  && <div className="relative flex items-center mr-7 sm:mr-9">
               <span className="items-center p-1 border-[#1A3E32] border-2 rounded-full h-7 w-7 sm:h-9 sm:w-9 z-50 bg-white cursor-pointer">
                 <IoChatbubblesOutline
                   className="text-[#1A3E32] w-4 h-4 sm:w-6 sm:h-6 m-auto font-bold" />
               </span>
-              <span className=" w-8 h-5 sm:w-12 sm:h-5 bg-[#1A3E32] rounded-full absolute left-6 text-white font-medium text-[8px] text-center p-1 -z-50">Chats</span>
-            </div>
+            {config.activeChatStyle && <span className={` w-8 h-5 sm:w-12 sm:h-5 bg-[#1A3E32] rounded-full absolute left-6 text-white font-medium text-[8px] text-center p-1 -z-50`}>Chats</span>}
+            </div>}
+             
             <span className={spanCircles}>
               <CiBellOn
                 className={iconStyle}
                 onClick={() => handleClick('/notification')} />
             </span>
-            <span className={spanCircles}>
+            {config.hasInvitations && <div className="relative flex items-center mr-7 sm:mr-11">
+                          <span className="items-center p-1 border-[#1A3E32] border-2 rounded-full h-7 w-7 sm:h-9 sm:w-9 z-50 bg-white cursor-pointer">
+                            <PiBriefcaseBold
+                              className="text-[#1A3E32] w-4 h-4 sm:w-6 sm:h-6 m-auto font-bold"
+                              onClick={() => handleClick('/candidate-search-page')}
+                            />
+                          </span>
+                          <span className=" w-9 h-5 sm:w-14 bg-[#1A3E32] rounded-full absolute left-7 text-white font-medium text-[8px] text-center p-1 px-2 -z-50">Invitations</span>
+                        </div>}
+            {config.hasUserSearch && <span className={spanCircles}>
               <LuUserRoundSearch
                 className={iconStyle}
                 onClick={() => handleClick('/candidate-search-page')}
               />
-            </span>
+            </span>}
             <span className={spanCircles}>
               <GrSync
                 className={iconStyle}

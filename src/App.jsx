@@ -41,7 +41,7 @@ import CoperateUploadDoc from "./pages/coperate/UploadDoc.jsx";
 import CoperateInReview from "./pages/coperate/InReview.jsx";
 import Recruitment from "./pages/employerDashboard/Recruitment.jsx";
 import CandidateSearchPage from "./pages/employerDashboard/CandidateSearchPage.jsx";
-import Chat from "./pages/chats/Chat.jsx";
+import Chat from "./pages/employerDashboard/Chat.jsx";
 import Connection from "./pages/employerDashboard/Connection.jsx";
 import PostPage from "./pages/employerDashboard/PostPage.jsx";
 import Notifications from "./pages/employerDashboard/Notifications.jsx";
@@ -51,7 +51,9 @@ import PaymentType from "./pages/paymentMethod/PaymentTypePage.jsx";
 import AddCard from "./pages/paymentMethod/AddCardPage.jsx";
 import PaymentProcessing from "./pages/paymentMethod/PaymentProcessing.jsx";
 import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
-import InterviewInvite from "./pages/chats/InterviewInvite.jsx";
+import SentInvite from "./pages/individual/SentInvite.jsx";
+import EmployeeSentInvite from "./pages/employerDashboard/EmployeeSentInvite.jsx";
+import InterviewInvite from "./components/InterviewInvite.jsx";
 
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
@@ -128,8 +130,9 @@ function App() {
           <Route path="/add-card" element={<AddCard />} />
           <Route path="/payment-processing" element={<PaymentProcessing />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
-          <Route path="/interview-invite" element={<InterviewInvite />} />
-         
+          <Route path="/sent-invite" element={<SentInvite />} />
+         <Route path="/employee-sent-invite" element={<EmployeeSentInvite />} />
+         <Route path="/interview-invite" element={<InterviewInvite />} />
       </Routes>
     </Router>
       </GoogleOAuthProvider>  

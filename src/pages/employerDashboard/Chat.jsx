@@ -22,9 +22,12 @@ import ChatPageHeader from "../../components/ChatPageHeader";
 
 
 const Chat = () => {
+
+
   const [activeChat, setActiveChat] = useState(null);
   const [newMessage, setNewMessage] = useState('');
   const [activeUsers] = useState([1, 3, 5]);
+  
 
   const users = [
     { id: 1, name: 'Okpata Favour', lastMessage: 'Hey...', avatar: user1Avatar, jobTitle: 'Recruiter', email: 'okpata.favour@example.com', phone: '+234 8012345678', linktree: 'https://linktree.com/okpata' },
@@ -58,6 +61,13 @@ const Chat = () => {
         sender: 'Okpata Favour',
         text: "Great! Let's go with Friday at 10:00 AM.",
         time: 'Sun at 5:05 AM',
+        type: 'received',
+      },
+      {
+        id: 4,
+        sender: 'Okpata Favour',
+        text: "Hi Prisca Osakwe, Great news! You've been shortlisted for the Graphics Designer position. We'd love to meet you during an interview on July 20th, 9:00am via https://meet.google.com/yqt-vbte-amu. Kindly confirm your availability. We're excited to learn more about you!",
+        time: 'Sun at 1:50 PM',
         type: 'received',
       },
     ],
@@ -102,7 +112,7 @@ const Chat = () => {
         <section className="flex flex-1 gap-2 ml-10 mr-10">
           {/* Sidebar */}
           <div className='p-2 bg-neutral-200'>
-            <div className="w-65 bg-[#1A3E32] text-white flex flex-col p-4 ">
+            <div className="w-65 bg-[#1A3E32] text-white flex flex-col p-4 h-full">
               <div className="flex items-center gap-2 mb-4">
                 <ChevronLeft size={20} color="#556B1F" />
                 <h2 className="text-xl font-semibold text-[#556B1F]">Chat</h2>
@@ -170,7 +180,7 @@ const Chat = () => {
                   />
                   <div>
                     <h3 className="font-semibold text-[#16730F]">{currentActiveUser?.name} <span className="bg-[#556B1F] rounded-full w-2 h-2 inline-block ml-1"></span> </h3>
-                    
+
                     <p className="text-sm text-[#556B1F]">online</p>
                   </div>
                 </div>
@@ -189,7 +199,7 @@ const Chat = () => {
                     className={`flex mb-4 ${message.type === 'sent' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-xs p-3 rounded-lg shadow text-sm ${message.type === 'sent'
+                      className={`max-w-96 p-4 rounded-lg shadow text-sm ${message.type === 'sent'
                         ? 'bg-[#16730F] text-white rounded-tl-2xl rounded-tr-3xl rounded-bl-2xl rounded-br-none'
                         : 'bg-neutral-300 text-gray-800 rounded-tr-2xl rounded-br-2xl rounded-bl-3xl rounded-tl-none'
                         }`}
