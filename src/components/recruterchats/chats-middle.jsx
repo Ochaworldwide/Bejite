@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import image from '../../assets/Ellipse.png'; 
 import check from '../../assets/Group.png';
-import { FaArrowLeft, FaPhone, FaVideo, FaBars } from 'react-icons/fa';
-
+import { FaArrowLeft, FaPhone, FaVideo, FaBars,FaMicrophone,FaSmile } from 'react-icons/fa';
 function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
   const [agreed, setAgreed] = useState(false);
   const [message, setMessage] = useState('');
@@ -130,7 +129,7 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
             className="text-gray-500 hover:text-green-600 text-lg"
             aria-label="Add emoji"
           >
-            😊
+            <FaSmile/>
           </button>
           <button
             type="button"
@@ -146,7 +145,7 @@ function ChatsMiddle({ selectedChat, onShowChatList, onShowChatInfo }) {
             className="text-gray-500 hover:text-green-600 text-lg"
             aria-label="Record voice"
           >
-            🎤
+           <FaMicrophone/>
           </button>
           <button
             type="button"
