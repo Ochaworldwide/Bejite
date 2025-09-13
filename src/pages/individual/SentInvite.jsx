@@ -37,13 +37,7 @@ export default function SentInvite() {
 
   const headerIcons = {
     hasInvitations: true,
-    hasChats: {
-      show: true,
-      className: 'text-red-400'
-    },
-    activeChatStyle: {
-      show: false
-    }
+    hasInactiveChats: true,
   }
 
   return (
@@ -52,7 +46,7 @@ export default function SentInvite() {
       <main className="flex flex-col h-screen p-2.5">
         <section className="flex gap-2">
           {/* Sidebar */}
-          <div className="p-2 bg-neutral-200">
+          <div className="p-2  bg-neutral-200">
             <div className="w-65 bg-[#1A3E32] text-white flex flex-col p-4 h-screen">
               <div className="flex items-center gap-2 mb-4">
                 <ChevronLeft size={20} color="#556B1F" />

@@ -63,13 +63,6 @@ const Chat = () => {
         time: 'Sun at 5:05 AM',
         type: 'received',
       },
-      {
-        id: 4,
-        sender: 'Okpata Favour',
-        text: "Hi Prisca Osakwe, Great news! You've been shortlisted for the Graphics Designer position. We'd love to meet you during an interview on July 20th, 9:00am via https://meet.google.com/yqt-vbte-amu. Kindly confirm your availability. We're excited to learn more about you!",
-        time: 'Sun at 1:50 PM',
-        type: 'received',
-      },
     ],
     2: [], 3: [], 4: [], 5: [], 6: [],
   };
@@ -104,10 +97,15 @@ const Chat = () => {
 
     setNewMessage('');
   };
+  
+   const headerIcons = {
+    hasUserSearch: true,
+    hasActiveChats: true
+  }
 
   return (
     <>
-      <ChatPageHeader />
+      <ChatPageHeader config={headerIcons} />
       <main className="flex flex-col h-screen font-inter p-2.5">
         <section className="flex flex-1 gap-2 ml-10 mr-10">
           {/* Sidebar */}
