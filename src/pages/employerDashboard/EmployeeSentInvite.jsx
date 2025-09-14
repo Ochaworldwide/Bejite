@@ -15,6 +15,7 @@ import {
 import employer1 from '../../assets/user2.png';
 import employer2 from '../../assets/user4.png';
 import image from '../../assets/image.png';
+import NewsFeedHeader from "../../components/NewsFeedHeader";
 
 export default function EmployeeSentInvite() {
   const employers = [
@@ -32,13 +33,14 @@ export default function EmployeeSentInvite() {
     setIsDisabled(false);
   }
 
-  const headerIcons = {
-    hasInvites: true,
-    hasUserSearch: true
-  }
+  // const headerIcons = {
+  //   hasInvites: true,
+  //   hasUserSearch: true
+  // }
   return (
     <>
-      <ChatPageHeader config={headerIcons} />
+      {/* <ChatPageHeader config={headerIcons} /> */}
+      <NewsFeedHeader/>
       <main className="flex flex-col h-screen p-2.5">
         <section className="flex gap-2">
           {/* Sidebar */}

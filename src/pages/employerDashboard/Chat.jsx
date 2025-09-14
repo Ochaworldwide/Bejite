@@ -19,6 +19,7 @@ import user5Avatar from '../../assets/user5.png';
 import user6Avatar from '../../assets/user6.png';
 import placeholderImage from '../../assets/image.png';
 import ChatPageHeader from "../../components/ChatPageHeader";
+import NewsFeedHeader from '../../components/NewsFeedHeader';
 
 
 const Chat = () => {
@@ -97,15 +98,18 @@ const Chat = () => {
 
     setNewMessage('');
   };
+
+
   
-   const headerIcons = {
-    hasUserSearch: true,
-    hasActiveChats: true
-  }
+  //  const headerIcons = {
+  //   hasUserSearch: true,
+  //   hasActiveChats: true
+  // }
 
   return (
     <>
-      <ChatPageHeader config={headerIcons} />
+      {/* <ChatPageHeader config={headerIcons} /> */}
+      <NewsFeedHeader/>
       <main className="flex flex-col h-screen font-inter p-2.5">
         <section className="flex flex-1 gap-2 ml-10 mr-10">
           {/* Sidebar */}
