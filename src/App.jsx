@@ -48,8 +48,9 @@ import PaymentProcessing from './pages/paymentMethod/PaymentProcessing.jsx';
 import PaymentSuccess from './pages/paymentMethod/PaymentSuccessPage.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthSuccess from './pages/auth/AuthSuccess.jsx';
-import VerifyEmail from './pages/auth/VerifyEmail.jsx';
+//import VerifyEmail from './pages/auth/VerifyEmail.jsx';
 import EmailSent from './pages/auth/EmailSent.jsx';
+import CompleteSignup from "./pages/CompleteSignup";
 
 const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
 
@@ -168,8 +169,9 @@ function App() {
 
                     {/* auth */}
                     <Route path="auth/success" element={<AuthSuccess />} />
-                    <Route path="auth/verify-email" element={<VerifyEmail />} />
+                   {/* <Route path="auth/verify-email" element={<VerifyEmail />} />*/}
                     <Route path="auth/email-sent" element={<EmailSent />} />
+                    <Route path="/complete-signup" element={<CompleteSignup />} />
                 </Routes>
             </Router>
         </GoogleOAuthProvider>

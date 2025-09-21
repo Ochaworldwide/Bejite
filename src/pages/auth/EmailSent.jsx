@@ -17,7 +17,7 @@ const EmailSent = () => {
         if (paramEmail) {
             setEmail(paramEmail);
         }
-    }, [email, location.search, navigate]);
+    }, [location.search, navigate]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-center">
@@ -31,11 +31,20 @@ const EmailSent = () => {
                 Please check your inbox and click the link to verify your
                 account.
             </p>
+           
 
             <p className="text-sm text-gray-400 mt-4">
                 Didn&apos;t receive the email? Check your spam folder or request
                 another one.
             </p>
+
+             {/* Go Back to Login Button */}
+            <button
+                onClick={() => navigate('/')}
+                className="mt-4 bg-[#16730F] text-white px-6 py-2 rounded-xl hover:bg-[#125c0c] transition"
+            >
+                Go back to Login
+            </button>
         </div>
     );
 };

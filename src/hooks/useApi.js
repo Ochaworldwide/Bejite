@@ -1,6 +1,7 @@
-import axios from 'axios';
-import React, { useCallback, useState } from 'react';
-import axiosInstance from '../services/axios';
+import { useCallback, useState } from 'react';
+
+const API_BASE =
+    import.meta.env.VITE_API_BASE_URL || 'https://bejite-backend.onrender.com';
 
 const useApi = () => {
     const [loading, setLoading] = useState(false);
@@ -8,77 +9,89 @@ const useApi = () => {
     const [error, setError] = useState(null);
 
     const postData = useCallback(async (url, payload) => {
+        const fullUrl = `${API_BASE}${url}`;
+        console.log('[useApi] POST request to:', fullUrl, 'Payload:', payload);
+
         try {
             setLoading(true);
 
-            const response = await axiosInstance.post(url, payload);
-            const result = await response.data;
+            const response = await fetch(fullUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+            console.log('[useApi] POST response:', result);
+
+            if (!response.ok) {
+                throw new Error(result.error || result.message || 'Unknown error');
+            }
+
             setData(result);
         } catch (err) {
-            if (axios.isAxiosError(err)) {
-                const message =
-                    err.response.data.error || err.response.data.message;
-                setError(message);
-                return;
-            } else if (err instanceof Error) {
-                setError(err.message);
-                return;
-            } else {
-                setError(String(err));
-                return;
-            }
+            console.error('[useApi] POST error:', err);
+            setError(err.message);
         } finally {
             setLoading(false);
         }
     }, []);
 
     const getData = useCallback(async (url) => {
+        const fullUrl = `${API_BASE}${url}`;
+        console.log('[useApi] GET request to:', fullUrl);
+
         try {
             setLoading(true);
 
-            const response = await axiosInstance.get(url);
-            const result = await response.data;
+            const response = await fetch(fullUrl);
+            const result = await response.json();
+
+            console.log('[useApi] GET response status:', response.status, 'Data:', result);
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Failed to fetch data');
+            }
+
             setData(result);
         } catch (err) {
-            console.log({ err });
-            if (axios.isAxiosError(err)) {
-                const message = err.response?.data.message || err.message;
-                setError(message);
-                return;
-            } else if (err instanceof Error) {
-                setError(err.message);
-                return;
-            } else {
-                setError(String(err));
-                return;
-            }
+            console.error('[useApi] GET error:', err);
+            setError(err.message);
         } finally {
             setLoading(false);
         }
     }, []);
 
     const postDataPromise = useCallback(async (url, payload) => {
+        const fullUrl = `${API_BASE}${url}`;
+        console.log('[useApi] POST (Promise) request to:', fullUrl, 'Payload:', payload);
+
         try {
             setLoading(true);
 
-            const response = await axiosInstance.post(url, payload);
-            const result = await response.data;
-            setData(result);
-        } catch (err) {
-            if (axios.isAxiosError(err)) {
-                const message =
-                    err.response.data.error || err.response.data.message;
-                setError(message);
-                throw new Error(message);
-            } else if (err instanceof Error) {
-                const message = err.message;
-                setError(message);
-                throw new Error(message);
-            } else {
-                const message = String(err);
-                setError(message);
-                throw new Error(message);
+            const response = await fetch(fullUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(payload),
+            });
+
+            const result = await response.json();
+            console.log('[useApi] POST (Promise) response:', result);
+
+            if (!response.ok) {
+                throw new Error(result.error || result.message || 'Unknown error');
             }
+
+            setData(result);
+            return result;
+        } catch (err) {
+            console.error('[useApi] POST (Promise) error:', err);
+            setError(err.message);
+            throw err;
         } finally {
             setLoading(false);
         }
