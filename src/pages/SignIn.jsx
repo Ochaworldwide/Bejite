@@ -30,8 +30,14 @@ function SignIn() {
         const token = data.accessToken;
         if (!token) return console.error("No accessToken returned!");
 
-        // Redirect to AuthSuccess for JWT decoding
-        window.location.href = `/auth/success?token=${encodeURIComponent(token)}`;
+        // ✅ Save token and user info directly (no decode)
+        localStorage.setItem("authToken", token);
+        if (data.user) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+        }
+
+        // ✅ Navigate directly to your protected page
+        navigate("/post-page");
       })
       .catch((err) => console.error("[Login] Failed:", err));
   };
@@ -41,7 +47,7 @@ function SignIn() {
   // -----------------------------
   const handleGoogleLogin = () => {
     setGoogleLoading(true);
-    // Backend should redirect to /auth/success?token=...
+    // Backend will redirect to /auth/success?token=...
     window.open("https://bejite-backend.onrender.com/auth/google", "_self");
   };
 
@@ -70,6 +76,11 @@ function SignIn() {
             src="/assets/images/Illustra.svg"
             alt="Auth"
             className="w-full h-screen"
+          />
+          <img
+            src="/assets/images/asubtext.svg"
+            alt="Auth Text"
+            className="absolute top-3/7 left-[46%] transform -translate-x-1/2 -translate-y-1/2"
           />
         </div>
 
