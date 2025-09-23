@@ -1,153 +1,48 @@
 import { Eye, EyeOff } from "lucide-react";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../services/axios";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../features/auth/authSlice";
 import BejiteLogo from "../../public/assets/images/logo.png";
 import GoogleImg from "../../public/assets/images/google.png";
 
 function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
 
-  const isDisabled = !email || !password || loading;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { loading, errors } = useSelector((state) => state.auth);
+  const isDisabled = !email || !password || loading;
 
-  const GOOGLE_CLIENT_ID =
-    "522329536868-69bb2k4v06g1k18enk4vutj0b23kfao8.apps.googleusercontent.com";
+  // -----------------------------
+  // Normal email/password login
+  // -----------------------------
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(loginUser({ email, password }))
+      .unwrap()
+      .then((data) => {
+        console.log("Login API response:", data);
 
-  // Use useCallback to create a stable reference for the Google callback
-  const handleGoogleResponse = useCallback(
-    async (response) => {
-      setGoogleLoading(true);
+        const token = data.accessToken;
+        if (!token) return console.error("No accessToken returned!");
 
-      try {
-        // Send the Google credential token to your backend
-        const backendResponse = await axiosInstance.post(
-          "https://bejite-backend.onrender.com/auth/google-login",
-          {
-            googleToken: response.credential,
-          }
-        );
-
-        if (backendResponse.data && backendResponse.data.token) {
-          localStorage.setItem("authToken", backendResponse.data.token);
-          console.log("Google Sign-in successful:", backendResponse.data);
-          navigate("/post-page");
-        } else {
-          console.error("Google Sign-in error: No token returned");
-          alert("Google login failed. Please try again.");
-        }
-      } catch (error) {
-        console.error("Google Sign-in failed:", error);
-
-        const backendMessage = error.response?.data?.message;
-
-        if (backendMessage) {
-          alert(backendMessage);
-        } else {
-          alert("Google login failed. Please try again later.");
-        }
-      } finally {
-        setGoogleLoading(false);
-      }
-    },
-    [navigate]
-  );
-
-  // Load Google Identity Services script
-  useEffect(() => {
-    // Make the callback globally available
-    window.handleGoogleResponse = handleGoogleResponse;
-
-    // Check if Google script is already loaded
-    if (window.google?.accounts?.id) {
-      window.google.accounts.id.initialize({
-        client_id: GOOGLE_CLIENT_ID,
-        callback: window.handleGoogleResponse,
-      });
-      return;
-    }
-
-    // Check if script already exists
-    let script = document.querySelector(
-      'script[src="https://accounts.google.com/gsi/client"]'
-    );
-
-    if (!script) {
-      script = document.createElement("script");
-      script.src = "https://accounts.google.com/gsi/client";
-      script.async = true;
-      script.defer = true;
-
-      script.onload = () => {
-        if (window.google?.accounts?.id) {
-          window.google.accounts.id.initialize({
-            client_id: GOOGLE_CLIENT_ID,
-            callback: window.handleGoogleResponse,
-          });
-        }
-      };
-
-      script.onerror = () => {
-        console.error("Failed to load Google Identity Services");
-      };
-
-      document.head.appendChild(script);
-    }
-
-    // Cleanup function - only clean up our global callback
-    return () => {
-      if (window.handleGoogleResponse) {
-        delete window.handleGoogleResponse;
-      }
-    };
-  }, [handleGoogleResponse, GOOGLE_CLIENT_ID]);
-
-  const handleGoogleSignIn = () => {
-    if (window.google?.accounts?.id) {
-      window.google.accounts.id.prompt();
-    } else {
-      alert("Google Sign-In is not loaded yet. Please try again in a moment.");
-    }
+        // Redirect to AuthSuccess for JWT decoding
+        window.location.href = `/auth/success?token=${encodeURIComponent(token)}`;
+      })
+      .catch((err) => console.error("[Login] Failed:", err));
   };
 
-  const handleLogin = async () => {
-    const payload = { email, password };
-    setLoading(true);
-
-    try {
-      const response = await axiosInstance.post(
-        "https://bejite-backend.onrender.com/auth/login",
-        payload
-      );
-
-      if (response.data && response.data.token) {
-        localStorage.setItem("authToken", response.data.token);
-        console.log("Sign-in successful:", response.data);
-        navigate("/post-page");
-      } else {
-        console.error("Sign-in error: No token returned");
-        alert("Login failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("Sign-in failed:", error);
-
-      const backendMessage = error.response?.data?.message;
-
-      if (backendMessage === "user not found, please sign up") {
-        alert("No account found with this email, please sign up");
-        navigate("/signup");
-      } else if (backendMessage === "invalid username or password") {
-        alert("Invalid email or password, please try again");
-      } else {
-        alert("An error occurred. Please try again later.");
-      }
-    } finally {
-      setLoading(false);
-    }
+  // -----------------------------
+  // Google OAuth login
+  // -----------------------------
+  const handleGoogleLogin = () => {
+    setGoogleLoading(true);
+    // Backend should redirect to /auth/success?token=...
+    window.open("https://bejite-backend.onrender.com/auth/google", "_self");
   };
 
   return (
@@ -168,30 +63,26 @@ function SignIn() {
         </div>
       </div>
 
-            <div className="flex flex-col lg:flex-row flex-1 justify-between relative">
-                <div className="w-full lg:w-[60%] relative hidden lg:block">
-                    <img
-                        src="/assets/images/Illustra.svg"
-                        alt="Auth"
-                        className="w-full h-screen"
-                    />
-                    <img
-                        src="/assets/images/asubtext.svg"
-                        alt="Auth Text"
-                        className="absolute top-3/7 left-[46%] transform -translate-x-1/2 -translate-y-1/2"
-                    />
-                </div>
+      <div className="flex flex-col lg:flex-row flex-1 justify-between relative">
+        {/* Left illustration */}
+        <div className="w-full lg:w-[60%] relative hidden lg:block">
+          <img
+            src="/assets/images/Illustra.svg"
+            alt="Auth"
+            className="w-full h-screen"
+          />
+        </div>
 
-                <div className="w-full lg:w-[40%] flex lg:justify-start items-center justify-center px-6 py-10">
-                    <div className="w-full max-w-md space-y-5">
-                        <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">
-                            Welcome Back!
-                        </h2>
-                        <p className="text-center text-[#1A3E32] text-md">
-                            Sign in to continue
-                        </p>
+        {/* Right form */}
+        <div className="w-full lg:w-[40%] flex lg:justify-start items-center justify-center px-6 py-10">
+          <div className="w-full max-w-md space-y-5">
+            <h2 className="text-3xl font-norican font-semibold text-[#16730F] text-center">
+              Welcome Back!
+            </h2>
+            <p className="text-center text-[#1A3E32] text-md">Sign in to continue</p>
 
-            <div className="space-y-4">
+            {/* Email/Password Form */}
+            <form onSubmit={handleLogin} className="space-y-4">
               <input
                 type="email"
                 placeholder="Email"
@@ -201,7 +92,7 @@ function SignIn() {
               />
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -215,42 +106,39 @@ function SignIn() {
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>
               </div>
-            </div>
 
-                        <div className="text-right">
-                            <p
-                                className="text-sm text-gray-500 italic hover:underline cursor-pointer"
-                                onClick={() => navigate('/forgot-password')}
-                            >
-                                Forgot Password?
-                            </p>
-                        </div>
+              {errors?.error && (
+                <p className="text-red-500 text-sm">{errors.error}</p>
+              )}
 
-            <button
-              disabled={isDisabled}
-              className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition ${
-                isDisabled
-                  ? 'bg-[#16730F40] cursor-not-allowed'
-                  : 'bg-[#16730F]'
-              }`}
-              // onClick={()=> navigate('/post-page')}
-              onClick={()=> handleLogin()}
-            >
-              Login
-            </button>
+              <div className="text-right">
+                <p
+                  className="text-sm text-gray-500 italic hover:underline cursor-pointer"
+                  onClick={() => navigate("/forgot-password")}
+                >
+                  Forgot Password?
+                </p>
+              </div>
 
-            <p className="text-[#1A3E32] text-center text-xl">
-              ...or signin with
-            </p>
+              <button
+                type="submit"
+                disabled={isDisabled}
+                className={`w-full py-4 rounded-full text-white font-semibold shadow-md transition ${
+                  isDisabled ? "bg-[#16730F40] cursor-not-allowed" : "bg-[#16730F]"
+                }`}
+              >
+                {loading ? "Logging in..." : "Login"}
+              </button>
+            </form>
 
+            <p className="text-[#1A3E32] text-center text-xl">...or sign in with</p>
+
+            {/* Google OAuth Button */}
             <div className="flex justify-center gap-6 mt-4">
               <button
-                onClick={handleGoogleSignIn}
-                disabled={googleLoading}
+                onClick={handleGoogleLogin}
                 className={`flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 hover:border-gray-400 transition-colors ${
-                  googleLoading
-                    ? "opacity-50 cursor-not-allowed"
-                    : "cursor-pointer hover:shadow-md"
+                  googleLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer hover:shadow-md"
                 }`}
               >
                 {googleLoading ? (

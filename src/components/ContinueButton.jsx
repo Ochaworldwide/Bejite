@@ -8,7 +8,7 @@ const ContinueButton = ({ isEnabled }) => {
 
   const handleClick = () => {
     if (isEnabled) {
-      navigate("/resume");
+      navigate("/");
     }
   };
 

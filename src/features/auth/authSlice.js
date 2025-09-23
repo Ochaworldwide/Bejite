@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Async thunk for signup
+// ✅ Async thunk for signup
 export const signupUser = createAsyncThunk(
   'auth/signupUser',
   async (userData, { rejectWithValue }) => {
@@ -16,9 +16,31 @@ export const signupUser = createAsyncThunk(
       return response.data;
     } catch (err) {
       console.error('API error:', err);
-      // If API returns validation errors, reject with them
-      if (err.response && err.response.data) {
+      if (err.response?.data) {
         console.log('Validation errors from API:', err.response.data);
+        return rejectWithValue(err.response.data);
+      }
+      return rejectWithValue({ error: 'Network Error' });
+    }
+  }
+);
+
+// ✅ Async thunk for login
+export const loginUser = createAsyncThunk(
+  'auth/loginUser',
+  async (credentials, { rejectWithValue }) => {
+    console.log('loginUser thunk called with:', credentials);
+    try {
+      const response = await axios.post(
+        'https://bejite-backend.onrender.com/auth/login',
+        credentials
+      );
+      console.log('Login API response:', response.data);
+      return response.data;
+    } catch (err) {
+      console.error('Login API error:', err);
+      if (err.response?.data) {
+        console.log('Login errors from API:', err.response.data);
         return rejectWithValue(err.response.data);
       }
       return rejectWithValue({ error: 'Network Error' });
@@ -31,11 +53,26 @@ const authSlice = createSlice({
   initialState: {
     loading: false,
     user: null,
-    errors: {}, // store all field-specific errors here
+    token: null,
+    errors: {},
   },
   reducers: {
     clearErrors: (state) => {
       console.log('Clearing errors');
+      state.errors = {};
+    },
+    logout: (state) => {
+      console.log('Logging out');
+      state.user = null;
+      state.token = null;
+      state.errors = {};
+      localStorage.removeItem('authToken');
+    },
+    // ✅ New reducer for Google login
+    setGoogleAuth: (state, action) => {
+      console.log('Setting Google auth data:', action.payload);
+      state.user = action.payload.user || null;
+      state.token = action.payload.token || null;
       state.errors = {};
     },
   },
@@ -55,18 +92,27 @@ const authSlice = createSlice({
       .addCase(signupUser.rejected, (state, action) => {
         console.log('signupUser rejected with:', action.payload);
         state.loading = false;
-
-        // Treat everything as field-specific errors
-        if (action.payload) {
-          state.errors = action.payload;
-          console.log('Setting field-specific errors:', action.payload);
-        } else {
-          state.errors = { error: 'Signup failed' };
-          console.log('Setting generic error:', state.errors);
-        }
+        state.errors = action.payload || { error: 'Signup failed' };
+      })
+      .addCase(loginUser.pending, (state) => {
+        console.log('loginUser pending...');
+        state.loading = true;
+        state.errors = {};
+      })
+      .addCase(loginUser.fulfilled, (state, action) => {
+        console.log('loginUser fulfilled with:', action.payload);
+        state.loading = false;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+        state.errors = {};
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        console.log('loginUser rejected with:', action.payload);
+        state.loading = false;
+        state.errors = action.payload || { error: 'Login failed' };
       });
   },
 });
 
-export const { clearErrors } = authSlice.actions;
+export const { clearErrors, logout, setGoogleAuth } = authSlice.actions;
 export default authSlice.reducer;
