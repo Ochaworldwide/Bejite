@@ -54,6 +54,8 @@ import PaymentSuccess from "./pages/paymentMethod/PaymentSuccessPage.jsx";
 import SentInvite from "./pages/individual/SentInvite.jsx";
 import EmployeeSentInvite from "./pages/employerDashboard/EmployeeSentInvite.jsx";
 import InterviewInvite from "./components/InterviewInvite.jsx";
+import About from "./pages/About.jsx";
+import Teams from "./pages/Teams.jsx";
 
 
 const GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
@@ -125,17 +127,19 @@ function App() {
           <Route path="/chats" element={<Chat />} />
           <Route path="/connection" element={<Connection />} />
           <Route path="/notification" element={<Notifications />} />
-          <Route path="/payment" element={<PaymentPage/>} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/payment-type" element={<PaymentType />} />
           <Route path="/add-card" element={<AddCard />} />
           <Route path="/payment-processing" element={<PaymentProcessing />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
           <Route path="/sent-invite" element={<SentInvite />} />
-         <Route path="/employee-sent-invite" element={<EmployeeSentInvite />} />
-         <Route path="/interview-invite" element={<InterviewInvite />} />
-      </Routes>
-    </Router>
-      </GoogleOAuthProvider>  
+          <Route path="/employee-sent-invite" element={<EmployeeSentInvite />} />
+          <Route path="/interview-invite" element={<InterviewInvite />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/teams" element={<Teams />} />
+        </Routes>
+      </Router>
+    </GoogleOAuthProvider>
   );
 }
 
